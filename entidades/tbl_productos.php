@@ -70,7 +70,7 @@ class tbl_producto{
         return $this->estado;
     } 
 
-    public function setEstado(){
+    public function setEstado($estado){
         $this->estado = $estado;
     } 
 

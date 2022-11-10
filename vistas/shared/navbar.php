@@ -19,6 +19,11 @@
                         <i class="bi bi-circle"></i><span>Usuarios</span>
                     </a>
                 </li>
+                <li>
+                    <a href="agregar_usuario.php">
+                        <i class="bi bi-circle"></i><span>Agregar Usuarios</span>
+                    </a>
+                </li>
                 
             </ul>
         </li><!-- End Components Nav -->

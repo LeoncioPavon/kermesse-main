@@ -277,12 +277,12 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Agregar Usuario</h1>
+      <h1>Agregar Producto</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Agregar Usuario</li>
+          <li class="breadcrumb-item active">Productos</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -291,7 +291,7 @@
        <!-- Formulario para agregar Usuario--> 
        <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Agregar datos del Usuario</h5>
+              <h5 class="card-title">Agregar Datos del Producto</h5>
 
               <!-- Floating Labels Form -->
               <form class="row g-3">
@@ -301,32 +301,39 @@
                     <label for="floatingName">Nombre</label>
                   </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-12">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
-                    <label for="floatingName">Apellidos</label>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
-                    <label for="floatingName">Correo Electronico</label>
+                    <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;"></textarea>
+                    <label for="floatingTextarea">Descripción</label>
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingEmail" placeholder="Your Email">
-                    <label for="floatingEmail">Usuario</label>
+                  <div class="col-md-12">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingCity" placeholder="City">
+                      <label for="floatingCity">Precio</label>
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-2">
                   <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Contraseña</label>
+                    <input type="text" class="form-control" id="floatingZip" placeholder="Zip">
+                    <label for="floatingZip">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-floating mb-3">
+                    <select class="form-select" id="floatingSelect" aria-label="State">
+                      <option selected>Seleccione una categoria</option>
+                      <option value="1">Consumo básico</option>
+                      <option value="2">Impulso</option>
+                      <option value="3">Urgencia</option>
+                    </select>
+                    <label for="floatingSelect">Categoria</label>
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Agregar Usuario</button>
+                  <button type="submit" class="btn btn-primary">Agregar Producto</button>
                   <button type="reset" class="btn btn-secondary">Cancelar</button>
                 </div>
               </form><!-- End floating Labels Form -->

@@ -24,7 +24,16 @@
                         <i class="bi bi-circle"></i><span>Agregar Usuarios</span>
                     </a>
                 </li>
-                
+                <li>
+                    <a href="agregar_productos.php">
+                        <i class="bi bi-circle"></i><span>Agregar Productos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="agregar_parroquia.php">
+                        <i class="bi bi-circle"></i><span>Agregar Parroquia</span>
+                    </a>
+                </li>
             </ul>
         </li><!-- End Components Nav -->
 

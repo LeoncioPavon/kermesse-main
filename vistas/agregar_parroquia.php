@@ -277,12 +277,12 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Agregar Usuario</h1>
+      <h1>Agregar Parroquia</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Agregar Usuario</li>
+          <li class="breadcrumb-item active">Agregar Parroquia</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -291,7 +291,7 @@
        <!-- Formulario para agregar Usuario--> 
        <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Agregar datos del Usuario</h5>
+              <h5 class="card-title">Agregar datos de la Parroquia</h5>
 
               <!-- Floating Labels Form -->
               <form class="row g-3">

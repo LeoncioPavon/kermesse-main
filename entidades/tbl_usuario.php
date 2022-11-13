@@ -6,6 +6,25 @@ class tbl_usuario{
     private $apellidos;
     private $email;
     private $estado;
+    
+    private $usuario;
+    
+    private $contraseña;
+
+    public function getUsuario(){
+        return $this->usuario;
+    }
+    public function setUsuario($usuario){
+        $this->usuario = $usuario;
+    }
+
+    public function getContraseña(){
+        return $this->contraseña;
+    }
+    public function setContraseña($contraseña){
+        $this->contraseña = $contraseña;
+    }
+
 
     public function getIdUsuario(){
         return $this->id_usuario;

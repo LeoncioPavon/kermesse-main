@@ -292,8 +292,6 @@
        <div class="card">
             <div class="card-body">
               <h5 class="card-title">Agregar datos de la Parroquia</h5>
-
-              <!-- Floating Labels Form -->
               <form class="row g-3">
                 <div class="col-md-12">
                   <div class="form-floating">
@@ -301,36 +299,42 @@
                     <label for="floatingName">Nombre</label>
                   </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-12">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
-                    <label for="floatingName">Apellidos</label>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
-                    <label for="floatingName">Correo Electronico</label>
+                    <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;"></textarea>
+                    <label for="floatingTextarea">Dirección</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating">
                     <input type="email" class="form-control" id="floatingEmail" placeholder="Your Email">
-                    <label for="floatingEmail">Usuario</label>
+                    <label for="floatingEmail">Teléfono</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating">
                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Contraseña</label>
+                    <label for="floatingPassword">Parroco</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
+                    <span class="input-group-text" for="floatingName">https://example.com/users/</span>
+                    <label for="floatingName">Sitio Web de la Parroquia</label>
+                  </div>
+                </div>
+                <div class="form-floating">
+                  <div class="col-sm-10">
+                    <label for="basic-url" class="form-label">Logo de la Parroquia</label>
+                    <input class="form-control" type="file" id="formFile">
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Agregar Usuario</button>
-                  <button type="reset" class="btn btn-secondary">Cancelar</button>
+                    <button type="button" class="btn btn-outline-primary">Agregar Parroquia</button>
+                    <button type="button" class="btn btn-outline-secondary">Cancelar</button>
                 </div>
               </form><!-- End floating Labels Form -->
-
     </section>
 
   </main><!-- End #main -->

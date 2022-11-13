@@ -20,6 +20,16 @@
                     </a>
                 </li>
                 <li>
+                    <a href="producto.php">
+                        <i class="bi bi-circle"></i><span>Productos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="parroquia.php">
+                        <i class="bi bi-circle"></i><span>Parroquias</span>
+                    </a>
+                </li>
+                <li>
                     <a href="agregar_usuario.php">
                         <i class="bi bi-circle"></i><span>Agregar Usuarios</span>
                     </a>

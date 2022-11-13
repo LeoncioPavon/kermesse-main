@@ -333,8 +333,8 @@
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Agregar Producto</button>
-                  <button type="reset" class="btn btn-secondary">Cancelar</button>
+                    <button type="button" class="btn btn-outline-primary">Agregar Producto</button>
+                    <button type="button" class="btn btn-outline-secondary">Cancelar</button>
                 </div>
               </form><!-- End floating Labels Form -->
 

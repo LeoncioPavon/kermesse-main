@@ -310,7 +310,7 @@
                 <div class="col-md-12">
                   <div class="form-floating">
                     <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
-                    <label for="floatingName">Correo Electronico</label>
+                    <label for="floatingName">Correo Electrónico</label>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -325,9 +325,18 @@
                     <label for="floatingPassword">Contraseña</label>
                   </div>
                 </div>
+              
+                  <div class="col-sm-10">
+                    <select class="form-select" aria-label="Default select example">
+                      <option selected>Selecciona un Rol</option>
+                      <option value="1">Administrador</option>
+                      <option value="2">Usuario</option>
+                    </select>
+                  </div>
+               
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Agregar Usuario</button>
-                  <button type="reset" class="btn btn-secondary">Cancelar</button>
+                    <button type="button" class="btn btn-outline-primary">Agregar Usuario</button>
+                    <button type="button" class="btn btn-outline-secondary">Cancelar</button>
                 </div>
               </form><!-- End floating Labels Form -->
 

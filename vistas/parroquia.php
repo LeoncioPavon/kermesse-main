@@ -277,12 +277,12 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Usuarios</h1>
+      <h1>Parroquias</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Usuarios</li>
+          <li class="breadcrumb-item active">Parroquias</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -290,43 +290,43 @@
     <section class="section">
     <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Usuarios Agregados</h5>
+              <h5 class="card-title">Parroquias Agregadas</h5>
               <!-- Bordered Table -->
               <table class="table table-bordered">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Apellidos</th>
-                    <th scope="col">Correo Electrónico</th>
-                    <th scope="col">Usuario</th>
-                    <th scope="col">Rol</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Parroco</th>
+                    <th scope="col">Sitio Web</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <th scope="row">1</th>
-                    <td>Jan Carlos</td>
-                    <td>Prado Mayorga</td>
-                    <td>jan@gmail.com</td>
-                    <td>Jan</td>
-                    <td>Administrador</td>
+                    <td>Inmaculada Concepcion</td>
+                    <td>Managua</td>
+                    <td>88889999</td>
+                    <td>Parroco</td>
+                    <td>Inmaculada Concepcion.com</td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
-                    <td>Jason de Jesús</td>
-                    <td>Esquivel Rivera</td>
-                    <td>jason@gmail.com</td>
-                    <td>Jason</td>
-                    <td>Administrador</td>
+                    <td>Santísima Trinidad</td>
+                    <td>Managua</td>
+                    <td>88889999</td>
+                    <td>Parroco</td>
+                    <td>SantísimaTrinidad.com</td>
                   </tr>
                   <tr>
                     <th scope="row">3</th>
-                    <td>Leoncio José</td>
-                    <td>Pavón Larios</td>
-                    <td>leoncio@gmail.com</td>
-                    <td>Leoncio</td>
-                    <td>Administrador</td>
+                    <td>Nuestra Señora de Candelaria</td>
+                    <td>Managua</td>
+                    <td>88889999</td>
+                    <td>Parroco</td>
+                    <td>NuestraSeñoradeCandelaria.com</td>
                   </tr>
               </table>
               <!-- End Bordered Table -->

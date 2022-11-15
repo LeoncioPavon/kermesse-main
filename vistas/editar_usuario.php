@@ -1,11 +1,27 @@
 <?php
+
 require_once '../entidades/tbl_usuario.php';
 require_once '../datos/dt_tbl_usuario.php';
 require_once '../controladores/usuarioController.php';
 
-$tu = new tbl_usuario();
 $dtu = new dt_tbl_usuario();
-$cu = new usuarioController();
+
+$varId_usuario = 0;
+if(isset($varId_usuario))
+{
+    $varId_usuario = $_GET['id_usuario'];
+}
+
+$data_usuario = $dtu->mostrarUsuario($varId_usuario);
+
+if(isset($_POST['m'])){
+    $metodo = $_POST['m'];
+    if(method_exists("usuarioController",$metodo))
+    {
+        usuarioController::{$metodo}();
+    }
+   
+}
 ?>
 
 <!DOCTYPE html>
@@ -220,7 +236,7 @@ $cu = new usuarioController();
             <li class="nav-item dropdown pe-3">
     
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="assets/img/logo2.png" alt="Profile" class="rounded-circle">
+                    <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
                     <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
                 </a><!-- End Profile Iamge Icon -->
     
@@ -287,12 +303,12 @@ $cu = new usuarioController();
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Usuarios</h1>
+      <h1>Editar Usuario</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Usuarios</li>
+          <li class="breadcrumb-item">Seguridad</li>
+          <li class="breadcrumb-item active">Editar Usuario</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -300,49 +316,47 @@ $cu = new usuarioController();
     <section class="section">
       <div class="row">
         <div class="col-lg-12">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Usuarios</h5>
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Nombres</th>
-                    <th>Apellidos</th>
-                    <th>Email</th>
-                    <th>Usuario</th>
-                    <th>Acción</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                    foreach($dtu->listarUsuario() as $r):
-                  ?>
-                  <tr>
-                    <td><?php echo $r->getIdUsuario(); ?></td>
-                    <td><?php echo $r->getNombres(); ?></td>
-                    <td><?php echo $r->getApellidos(); ?></td>
-                    <td><?php echo $r->getEmail(); ?></td>
-                    <td><?php echo $r->getUsuario(); ?></td>
-                    <td>
-                        <a href="editar_usuario.php?id_usuario=<?php echo $r->getIdUsuario(); ?>">
-                            <i class="bi bi-pencil-square" title="Editar Usuario"></i>
-                        </a>
-                        &nbsp;&nbsp;
-                        <a href="#">
-                            <i class="bi bi-trash3" title="Eliminar Usuario"></i>
-                        </a>
-                    </td>
-                  </tr>
-                  <?php endforeach;?>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
+            <form action="" method="POST">
+                <div class="row mb-3">
+                    <input type="hidden" value="<?php echo $data_usuario->getIdUsuario(); ?>" name="id_usuario" />
+                    <label class="col-sm-2 col-form-table">Nombre:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="nombre" value="<?php echo $data_usuario->getNombres();?>" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-table">Apellido:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="apellido" class="form-control" value="<?php echo $data_usuario->getApellidos(); ?>" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-table">Email:</label>
+                    <div class="col-sm-10">
+                        <input type="email" name="email" class="form-control" value="<?php echo $data_usuario->getEmail(); ?>" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-table">Usuario:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="usuario" class="form-control" value="<?php echo $data_usuario->getUsuario(); ?>" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-table">Contraseña:</label>
+                    <div class="col-sm-10">
+                        <input type="password" name="pwd" class="form-control" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Actualizar Usuario</button>
+                        <input type="hidden" name="m" value="editarUsuario">
+                    </div>
+                </div>
+            </form>
         </div>
-
       </div>
     </section>
 

@@ -9,7 +9,7 @@ class tbl_usuario{
     
     private $usuario;
     
-    private $contraseña;
+    private $pwd;
 
     public function getUsuario(){
         return $this->usuario;
@@ -18,11 +18,11 @@ class tbl_usuario{
         $this->usuario = $usuario;
     }
 
-    public function getContraseña(){
-        return $this->contraseña;
+    public function getPwd(){
+        return $this->pwd;
     }
-    public function setContraseña($contraseña){
-        $this->contraseña = $contraseña;
+    public function setPwd($pwd){
+        $this->pwd = $pwd;
     }
 
 

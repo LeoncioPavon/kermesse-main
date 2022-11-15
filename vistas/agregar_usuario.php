@@ -1,3 +1,17 @@
+<?php
+
+require_once '../entidades/tbl_usuario.php';
+require_once '../datos/dt_tbl_usuario.php';
+require_once '../controladores/usuarioController.php';
+if(isset($_POST['m'])){
+    $metodo = $_POST['m'];
+    if(method_exists("usuarioController",$metodo))
+    {
+        usuarioController::{$metodo}();
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -294,48 +308,41 @@
               <h5 class="card-title">Agregar datos del Usuario</h5>
 
               <!-- Floating Labels Form -->
-              <form class="row g-3">
+              <form class="row g-3" method="POST">
                 <div class="col-md-12">
+                <input type="hidden" value="guardar" name="txtaccion" />
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
+                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name" name="nombre">
                     <label for="floatingName">Nombre</label>
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
+                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name" name="apellido">
                     <label for="floatingName">Apellidos</label>
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
+                    <input type="email" class="form-control" id="floatingName" placeholder="Your Name" name="email">
                     <label for="floatingName">Correo Electrónico</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingEmail" placeholder="Your Email">
+                    <input type="text" class="form-control" id="floatingEmail" placeholder="Your Email" name="usuario">
                     <label for="floatingEmail">Usuario</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="pwd">
                     <label for="floatingPassword">Contraseña</label>
                   </div>
                 </div>
-              
-                  <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>Selecciona un Rol</option>
-                      <option value="1">Administrador</option>
-                      <option value="2">Usuario</option>
-                    </select>
-                  </div>
-               
                 <div class="text-center">
-                    <button type="button" class="btn btn-outline-primary">Agregar Usuario</button>
+                    <button type="submit" class="btn btn-outline-primary">Agregar Usuario</button>
+                    <input type="hidden" name="m" value="guardarUsuario">
                     <button type="button" class="btn btn-outline-secondary">Cancelar</button>
                 </div>
               </form><!-- End floating Labels Form -->

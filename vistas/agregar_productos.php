@@ -1,13 +1,13 @@
 <?php
-
 require_once '../entidades/tbl_productos.php';
 require_once '../datos/dt_tbl_productos.php';
 require_once '../controladores/productoController.php';
+
 if(isset($_POST['m'])){
     $metodo = $_POST['m'];
     if(method_exists("productoController",$metodo))
     {
-        usuarioController::{$metodo}();
+        productoController::{$metodo}();
     }
 }
 ?>

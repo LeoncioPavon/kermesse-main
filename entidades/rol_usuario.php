@@ -29,15 +29,4 @@ class rol_usuario{
         $this->tbl_rol_id_rol = $tbl_rol_id_rol;
     }
 
-     //Otro método
-    /*
-    public function __GET($k)
-    { 
-        return $this->$k; 
-    }
-	public function __SET($k, $v)
-    { 
-        return $this->$k = $v; 
-    } */
-
 }

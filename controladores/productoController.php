@@ -2,7 +2,7 @@
 require_once('../entidades/tbl_productos.php');
 require_once("../datos/dt_tbl_productos.php");
 
-class usuarioController{
+class productoController{
     private $dt_producto;
 
     public function __construct(){

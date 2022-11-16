@@ -44,6 +44,11 @@
                         <i class="bi bi-circle"></i><span>Agregar Parroquia</span>
                     </a>
                 </li>
+                <li>
+                    <a href="agregar_comunidad.php">
+                        <i class="bi bi-circle"></i><span>Agregar Comunidad</span>
+                    </a>
+                </li>
             </ul>
         </li><!-- End Components Nav -->
 

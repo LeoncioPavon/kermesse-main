@@ -1,13 +1,13 @@
 <?php
 
-require_once '../entidades/tbl_productos.php';
-require_once '../datos/dt_tbl_productos.php';
-require_once '../controladores/productoController.php';
+require_once '../entidades/tbl_comunidad.php';
+require_once '../datos/dt_tbl_comunidad.php';
+require_once '../controladores/comunidadController.php';
 if(isset($_POST['m'])){
     $metodo = $_POST['m'];
-    if(method_exists("productoController",$metodo))
+    if(method_exists("comunidadController",$metodo))
     {
-        usuarioController::{$metodo}();
+        comunidadController::{$metodo}();
     }
 }
 ?>
@@ -291,12 +291,12 @@ if(isset($_POST['m'])){
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Agregar Producto</h1>
+      <h1>Agregar Usuario</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Productos</li>
+          <li class="breadcrumb-item active">Agregar Comunidad</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -305,42 +305,32 @@ if(isset($_POST['m'])){
        <!-- Formulario para agregar Usuario--> 
        <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Agregar Datos del Producto</h5>
+              <h5 class="card-title">Agregar datos de la Comunidad</h5>
 
               <!-- Floating Labels Form -->
               <form class="row g-3" method="POST">
                 <div class="col-md-12">
                 <input type="hidden" value="guardar" name="txtaccion" />
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name"  name="nombre">
+                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name" name="nombre">
                     <label for="floatingName">Nombre</label>
                   </div>
                 </div>
-                <div class="col-12">
-                  <div class="form-floating">
-                    <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;"  name="descripcion"></textarea>
-                    <label for="floatingTextarea">Descripción</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="col-md-12">
-                    <div class="form-floating">
-                      <input type="text" class="form-control" id="floatingCity" placeholder="City"  name="preciov_sugerido">
-                      <label for="floatingCity">Precio</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
                 <div class="col-md-12">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingZip" placeholder="Zip"  name="cantidad">
-                    <label for="floatingZip">Cantidad</label>
+                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name" name="responsable">
+                    <label for="floatingName">Responsable</label>
                   </div>
                 </div>
+                <div class="col-md-12">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name" name="desccontribucion">
+                    <label for="floatingName">Descuento</label>
+                  </div>
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-outline-primary">Agregar Producto</button>
-                    <input type="hidden" name="m" value="guardarProducto">
+                    <button type="submit" class="btn btn-outline-primary">Agregar Comunidad</button>
+                    <input type="hidden" name="m" value="guardarComunidad">
                     <button type="button" class="btn btn-outline-secondary">Cancelar</button>
                 </div>
               </form><!-- End floating Labels Form -->

@@ -25,7 +25,6 @@ class comunidadController
             $tu->setDescContribucion($desc_contribucion);
 
 
-            //$this->usuario->guardarUsuario($tu);
             $dtu->guardarComunidad($tu);
 
 

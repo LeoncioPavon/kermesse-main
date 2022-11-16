@@ -49,6 +49,11 @@
                         <i class="bi bi-circle"></i><span>Agregar Comunidad</span>
                     </a>
                 </li>
+                <li>
+                    <a href="agregar_categoriaProd.php">
+                        <i class="bi bi-circle"></i><span>Agregar Categoria</span>
+                    </a>
+                </li>
             </ul>
         </li><!-- End Components Nav -->
 

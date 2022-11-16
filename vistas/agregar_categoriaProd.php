@@ -1,13 +1,13 @@
 <?php
 
-require_once '../entidades/tbl_comunidad.php';
-require_once '../datos/dt_tbl_comunidad.php';
-require_once '../controladores/comunidadController.php';
+require_once '../entidades/tbl_categoria_producto.php';
+require_once '../datos/dt_tbl_categoria.php';
+require_once '../controladores/categoriaController.php';
 if(isset($_POST['m'])){
     $metodo = $_POST['m'];
-    if(method_exists("comunidadController",$metodo))
+    if(method_exists("categoriaController",$metodo))
     {
-        comunidadController::{$metodo}();
+        categoriaController::{$metodo}();
     }
 }
 ?>
@@ -291,12 +291,12 @@ if(isset($_POST['m'])){
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Agregar Comunidad</h1>
+      <h1>Agregar Categoria</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Agregar Comunidad</li>
+          <li class="breadcrumb-item active">Agregar Categoria</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -305,7 +305,7 @@ if(isset($_POST['m'])){
        <!-- Formulario para agregar Usuario--> 
        <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Agregar datos de la Comunidad</h5>
+              <h5 class="card-title">Agregar datos de la Categoria</h5>
 
               <!-- Floating Labels Form -->
               <form class="row g-3" method="POST">
@@ -316,21 +316,15 @@ if(isset($_POST['m'])){
                     <label for="floatingName">Nombre</label>
                   </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-12">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name" name="responsable">
-                    <label for="floatingName">Responsable</label>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name" name="desccontribucion">
-                    <label for="floatingName">Descuento</label>
+                    <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;"  name="descripcion"></textarea>
+                    <label for="floatingTextarea">Descripción</label>
                   </div>
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-outline-primary">Agregar Comunidad</button>
-                    <input type="hidden" name="m" value="guardarComunidad">
+                    <button type="submit" class="btn btn-outline-primary">Agregar Categoria</button>
+                    <input type="hidden" name="m" value="guardarCategoria">
                     <button type="button" class="btn btn-outline-secondary">Cancelar</button>
                 </div>
               </form><!-- End floating Labels Form -->

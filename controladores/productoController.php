@@ -26,7 +26,7 @@ class usuarioController{
             $tu->setPreciovSugerido($preciov_sugerido);
             
 
-            //$this->usuario->guardarUsuario($tu);
+          
             $dtu->guardarProducto($tu);
             
             

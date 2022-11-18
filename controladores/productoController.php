@@ -11,7 +11,7 @@ class productoController{
     public static function guardarProductos(){
         try 
         {
-
+            
             $nombre = $_REQUEST['nombre'];
             $descripcion = $_REQUEST['descripcion'];
             $cantidad = $_REQUEST['cantidad'];

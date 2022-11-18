@@ -368,7 +368,7 @@ $cu = new categoriaController();
                             <label for="floatingSelect">Categoria</label>
                         </div>
                     </div>
-                </div> 
+                </div>
                 <div class="col-md-6">
                     <div class="col-md-12">
                         <div class="form-floating">

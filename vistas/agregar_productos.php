@@ -357,7 +357,7 @@ $cu = new categoriaController();
                 <div class="col-md-6">
                     <div class="col-md-12">
                         <div class="form-floating">
-                            <select class="form-control" id="floatingZip" placeholder="Zip" required>
+                            <select class="form-control" id="floatingZip" placeholder="Zip">
                             <option selected>Selecciona Una Categoria</option>
                                 <?php
                                     foreach ($dtu->listarCategoriaPrueba() as $r):
@@ -372,7 +372,7 @@ $cu = new categoriaController();
                 <div class="col-md-6">
                     <div class="col-md-12">
                         <div class="form-floating">
-                            <select class="form-control" id="floatingZip" placeholder="Zip" required>
+                            <select class="form-control" id="floatingZip" placeholder="Zip">
                             <option selected>Selecciona Una Comunidad</option>
                                 <?php
                                     foreach ($dta->listarComunidadPrueba() as $r):

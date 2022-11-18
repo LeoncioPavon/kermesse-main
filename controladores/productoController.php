@@ -11,7 +11,7 @@ class productoController{
     public static function guardarProductos(){
         try 
         {
-           
+
             $nombre = $_REQUEST['nombre'];
             $descripcion = $_REQUEST['descripcion'];
             $cantidad = $_REQUEST['cantidad'];
@@ -19,16 +19,13 @@ class productoController{
             
             $tu = new tbl_producto();
             $dtu = new dt_tbl_productos();
-
+            
             $tu->setNombres($nombre);
             $tu->setDescripcion($descripcion);
             $tu->setCantidad($cantidad);
             $tu->setPreciovSugerido($preciov_sugerido);
-            
 
-          
             $dtu->guardarProducto($tu);
-            
             
             header("Location: agregar_productos.php");
             

@@ -10,6 +10,13 @@ if(isset($_POST['m'])){
         productoController::{$metodo}();
     }
 }
+require_once '../entidades/tbl_categoria_producto.php';
+require_once '../datos/dt_tbl_categoria.php';
+require_once '../controladores/categoriaController.php';
+
+$tu = new tbl_categoria_producto();
+$dtu = new dt_tbl_categoria();
+$cu = new categoriaController(); 
 ?>
 
 <!DOCTYPE html>
@@ -337,6 +344,21 @@ if(isset($_POST['m'])){
                     <label for="floatingZip">Cantidad</label>
                   </div>
                 </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <select class="form-control" id="floatingZip" placeholder="Zip">
+                            <option selected>Selecciona Una Categoria</option>
+                                <?php
+                                    foreach ($dtu->listarCategoriaPrueba() as $r):  
+                                ?>    
+                                <option><?php echo $r->getNombre(); ?></option>      
+                                <?php endforeach; ?> 
+                            </select>
+
+                        </div>
+                    </div>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-outline-primary">Agregar Producto</button>

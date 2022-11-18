@@ -18,14 +18,14 @@ class comunidadController
             $desc_contribucion = $_REQUEST['desccontribucion'];
     
             $tu = new tbl_comunidad();
-            $dtu = new dt_tbl_comunidad();
+            $dta = new dt_tbl_comunidad();
 
             $tu->setNombre($nombre);
             $tu->setResponsable($responsable);
             $tu->setDescContribucion($desc_contribucion);
 
 
-            $dtu->guardarComunidad($tu);
+            $dta->guardarComunidad($tu);
 
 
             header("Location: agregar_comunidad.php");

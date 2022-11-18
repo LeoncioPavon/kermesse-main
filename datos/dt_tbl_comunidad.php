@@ -2,8 +2,33 @@
 
 require_once("conexion.php");
 require_once("../entidades/tbl_comunidad.php");
-class dt_tbl_comunidad extends Conexion{
+class dt_tbl_comunidad extends Conexion
+{
 
+    public function listarComunidadPrueba()
+    {    
+        try
+        {
+            $sql = "SELECT id_comunidad, nombre FROM tbl_comunidad where estado<>3;";
+            $result = array();
+            $stm = $this->conectar()->prepare($sql);
+            $stm->execute();
+
+            foreach($stm->fetchAll(PDO::FETCH_OBJ) as $r)
+            {
+                $ta = new tbl_comunidad();
+                $ta->setIdComunidad($r->id_comunidad);
+                $ta->setNombre($r->nombre);
+                $ta->setEstado($r->estado);
+
+                $result[] = $ta;
+            }
+            return $result;
+        } catch (Exception $e)
+        {
+            die($e->getMessage());
+        }
+    }
     public function listarComunidad()
     {    
         try

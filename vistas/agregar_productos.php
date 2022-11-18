@@ -10,13 +10,22 @@ if(isset($_POST['m'])){
         productoController::{$metodo}();
     }
 }
+
+require_once '../entidades/tbl_comunidad.php';
+require_once '../datos/dt_tbl_comunidad.php';
+require_once '../controladores/comunidadController.php';
+
+$ta = new tbl_comunidad();
+$dta = new dt_tbl_comunidad();
+$ca = new comunidadController();
+
 require_once '../entidades/tbl_categoria_producto.php';
 require_once '../datos/dt_tbl_categoria.php';
 require_once '../controladores/categoriaController.php';
 
 $tu = new tbl_categoria_producto();
 $dtu = new dt_tbl_categoria();
-$cu = new categoriaController(); 
+$cu = new categoriaController();
 ?>
 
 <!DOCTYPE html>
@@ -351,12 +360,27 @@ $cu = new categoriaController();
                             <select class="form-control" id="floatingZip" placeholder="Zip" required>
                             <option selected>Selecciona Una Categoria</option>
                                 <?php
-                                    foreach ($dtu->listarCategoriaPrueba() as $r):  
+                                    foreach ($dtu->listarCategoriaPrueba() as $r):
                                 ?>    
                                 <option><?php echo $r->getIdCategoriaProducto(); ?>&nbsp;<?php echo $r->getNombre(); ?></option>      
                                 <?php endforeach; ?> 
                             </select>
                             <label for="floatingSelect">Categoria</label>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-md-6">
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <select class="form-control" id="floatingZip" placeholder="Zip" required>
+                            <option selected>Selecciona Una Comunidad</option>
+                                <?php
+                                    foreach ($dta->listarComunidadPrueba() as $r):
+                                ?>    
+                                <option><?php echo $r->getIdComunidad(); ?>&nbsp;<?php echo $r->getNombre(); ?></option>      
+                                <?php endforeach; ?> 
+                            </select>
+                            <label for="floatingSelect">Comunidad</label>
                         </div>
                     </div>
                 </div>
@@ -365,11 +389,12 @@ $cu = new categoriaController();
                     <input type="hidden" name="m" value="guardarProducto">
                     <button type="button" class="btn btn-outline-secondary">Cancelar</button>
                 </div>
-              </form><!-- End floating Labels Form -->
+              </form>
+              <!-- End floating Labels Form -->
 
     </section>
-
-  </main><!-- End #main -->
+  </main>
+  <!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <?php

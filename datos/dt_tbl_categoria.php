@@ -38,7 +38,7 @@ class dt_tbl_categoria extends Conexion
             foreach ($stm->fetchAll(PDO::FETCH_OBJ) as $r) {
                 $tu = new tbl_categoria_producto();
                 $tu->setIdCategoriaProducto($r->id_categoria_producto);
-                $tu->setNombre($r->nombres);
+                $tu->setNombre($r->nombre);
                 $tu->setDescripcion($r->descripcion);
                 $tu->setEstado($r->estado);
 
@@ -70,6 +70,50 @@ class dt_tbl_categoria extends Conexion
             die($e->getMessage());
         }
         
+    }
+
+    public function editarCategoria(tbl_categoria_producto $tu)
+    {
+        try 
+        {
+            $sql = 'UPDATE tbl_categoria_producto SET nombre = ?, descripcion = ?, estado = 2 where id_categoria_producto = ?';
+            $query = $this->conectar()->prepare($sql);
+            $query->execute(array(
+                $tu->getNombre(),
+                $tu->getDescripcion(),
+            ));
+        } 
+        catch (Exception $e) 
+        {
+            die($e->getMessage());
+        }
+    }
+
+    public function mostrarCategoria($id_categoria_producto)
+    {
+        try 
+        {
+            $sql = "SELECT * FROM tbl_categoria_producto where estado<>3 and id_categoria_producto = ?;"; 
+            //$result = array(); 
+            $stm = $this->conectar()->prepare($sql);
+            $stm->execute(array($id_categoria_producto));
+
+            $r = $stm->fetch(PDO::FETCH_OBJ);
+
+            $tu = new tbl_categoria_producto();
+
+            $tu->setIdCategoriaProducto($r->id_categoria_producto);
+            $tu->setNombre($r->nombre);
+            $tu->setDescripcion($r->descripcion);
+            $tu->setEstado($r->estado);
+
+            //$result[] = $tu;   
+            return $tu;
+        } 
+        catch (Exception $e) 
+        {
+            die($e->getMessage());
+        }
     }
 
 }

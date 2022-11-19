@@ -31,4 +31,29 @@ class categoriaController
             die($e->getMessage());
         }
     }
+    public function editarCategoria()
+    {
+        try 
+        {
+            
+            $id_categoria_producto = $_REQUEST['id_categoria_producto'];
+            $nombre = $_REQUEST['nombre'];
+            $descripcion = $_REQUEST['descripcion'];
+        
+            $tu = new tbl_categoria_producto();
+            $dtu = new dt_tbl_categoria();
+
+            $tu->setIdCategoriaProducto($id_categoria_producto);
+            $tu->setNombre($nombre);
+            $tu->setDescripcion($descripcion);
+
+            $dtu->editarCategoria($tu);
+            
+            header("Location: categoria.php");
+        } 
+        catch (Exception $e) 
+        {
+            die($e->getMessage());
+        }
+    }
 }

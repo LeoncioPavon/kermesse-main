@@ -1,11 +1,11 @@
 <?php
-require_once '../entidades/tbl_comunidad.php';
-require_once '../datos/dt_tbl_comunidad.php';
-require_once '../controladores/comunidadController.php';
+require_once '../entidades/tbl_categoria_producto.php';
+require_once '../datos/dt_tbl_categoria.php';
+require_once '../controladores/categoriaController.php';
 
-$tu = new tbl_comunidad();
-$dtu = new dt_tbl_comunidad();
-$cu = new comunidadController();
+$tu = new tbl_categoria_producto();
+$dtu = new dt_tbl_categoria();
+$cu = new categoriaController();
 ?>
 
 <!DOCTYPE html>
@@ -287,49 +287,48 @@ $cu = new comunidadController();
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Comunidades</h1>
+      <h1>Categorias</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Comunidades</li>
+          <li class="breadcrumb-item active">Categorias</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
+    
     <section class="section">
       <div class="row">
         <div class="col-lg-12">
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Comunidades Agregados</h5>
+              <h5 class="card-title">Categorias Agregados</h5>
               <table class="table table-hover">
                 <thead>
                   <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Responsable</th>
-                    <th>Descuento</th>
+                    <th>Descripcion</th>
                     <th>Acción</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                    foreach($dtu->listarComunidad() as $r):
+                    foreach($dtu->listarCategoria() as $r):
                   ?>
                   <tr>
-                    <td><?php echo $r->getIdComunidad(); ?></td>
+                    <td><?php echo $r->getIdCategoriaProducto(); ?></td>
                     <td><?php echo $r->getNombre(); ?></td>
-                    <td><?php echo $r->getResponsable(); ?></td>
-                    <td><?php echo $r->getDescContribucion(); ?></td>
+                    <td><?php echo $r->getDescripcion(); ?></td>
                     <td>
-                        <a href="editar_comunidad.php?id_comunidad=<?php echo $r->getIdComunidad(); ?>">
-                            <i class="bi bi-pencil-square" title="Editar Comunidad"></i>
+                        <a href="editar_categoria.php?id_comunidad=<?php echo $r->getIdCategoriaProducto(); ?>">
+                            <i class="bi bi-pencil-square" title="Editar Categoria"></i>
                         </a>
                         &nbsp;&nbsp;
                         <a href="#">
-                            <i class="bi bi-trash3" title="Eliminar Comunidad"></i>
+                            <i class="bi bi-trash3" title="Eliminar Categoria"></i>
                         </a>
                     </td>
                   </tr>
@@ -342,7 +341,9 @@ $cu = new comunidadController();
       </div>
     </section>
 
-  </main><!-- End #main -->
+   
+   </main>
+  <!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <?php

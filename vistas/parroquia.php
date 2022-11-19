@@ -288,48 +288,7 @@
     </div><!-- End Page Title -->
 
     <section class="section">
-    <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Parroquias Agregadas</h5>
-              <!-- Bordered Table -->
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Dirección</th>
-                    <th scope="col">Teléfono</th>
-                    <th scope="col">Parroco</th>
-                    <th scope="col">Sitio Web</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Inmaculada Concepcion</td>
-                    <td>Managua</td>
-                    <td>88889999</td>
-                    <td>Parroco</td>
-                    <td>Inmaculada Concepcion.com</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Santísima Trinidad</td>
-                    <td>Managua</td>
-                    <td>88889999</td>
-                    <td>Parroco</td>
-                    <td>SantísimaTrinidad.com</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Nuestra Señora de Candelaria</td>
-                    <td>Managua</td>
-                    <td>88889999</td>
-                    <td>Parroco</td>
-                    <td>NuestraSeñoradeCandelaria.com</td>
-                  </tr>
-              </table>
-              <!-- End Bordered Table -->
+    
     </section>
 
   </main><!-- End #main -->

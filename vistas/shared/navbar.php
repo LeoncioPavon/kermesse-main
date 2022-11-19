@@ -35,6 +35,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="categorias.php">
+                        <i class="bi bi-circle"></i><span>Categorias</span>
+                    </a>
+                </li>
+                <li>
                     <a href="agregar_usuario.php">
                         <i class="bi bi-circle"></i><span>Agregar Usuarios</span>
                     </a>

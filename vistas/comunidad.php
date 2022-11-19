@@ -1,3 +1,13 @@
+<?php
+require_once '../entidades/tbl_comunidad.php';
+require_once '../datos/dt_tbl_comunidad.php';
+require_once '../controladores/comunidadController.php';
+
+$tu = new tbl_comunidad();
+$dtu = new dt_tbl_comunidad();
+$cu = new comunidadController();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -277,21 +287,53 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Productos</h1>
+      <h1>Comunidades</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Productos</li>
+          <li class="breadcrumb-item active">Comunidades</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
     <section class="section">
-    <div class="card">
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Productos Agregados</h5>
-              <h5 class="card-title">En Proceso...</h5>
+              <h5 class="card-title">Usuarios Agregados</h5>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Responsabel</th>
+                    <th>Descuento</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                    foreach($dtu->listarComunidad() as $r):
+                  ?>
+                  <tr>
+                    <td><?php echo $r->getIdComunidad(); ?></td>
+                    <td><?php echo $r->getNombre(); ?></td>
+                    <td><?php echo $r->getResponsable(); ?></td>
+                    <td><?php echo $r->getDescContribucion(); ?></td>
+                  </tr>
+                  <?php endforeach;?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
     </section>
 
   </main><!-- End #main -->

@@ -303,7 +303,7 @@ $cu = new usuarioController();
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Usuarios</h5>
+              <h5 class="card-title">Usuarios Agregados</h5>
               <table class="table table-hover">
                 <thead>
                   <tr>

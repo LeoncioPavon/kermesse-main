@@ -373,7 +373,7 @@ $cu = new categoriaController();
                     <div class="col-md-12">
                         <div class="form-floating">
                             <select class="form-control" id="floatingZip" placeholder="Zip">
-                            <option selected>Selecciona Una Comunidad</option>
+                            <option value="0" selected>Selecciona Una Comunidad</option>
                                 <?php
                                     foreach ($dta->listarComunidadPrueba() as $r):
                                 ?>    

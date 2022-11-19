@@ -25,7 +25,6 @@ class tbl_usuario{
         $this->pwd = $pwd;
     }
 
-
     public function getIdUsuario(){
         return $this->id_usuario;
     }
@@ -64,18 +63,4 @@ class tbl_usuario{
     public function setEstado($estado){
         $this->estado = $estado;
     }
-
-    /*OTRO METODO*/
-    //OPCIONAL FUNCTIONA PARA TODOS LOS ATRIBUTOS DE LA CLASE
-
-    /*
-    public function __GET($k)
-    { 
-        return $this->$k; 
-    }
-	public function __SET($k, $v)
-    { 
-        return $this->$k = $v; 
-    } */
-    
 }

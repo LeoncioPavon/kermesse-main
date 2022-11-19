@@ -30,6 +30,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="comunidad.php">
+                        <i class="bi bi-circle"></i><span>Comunidades</span>
+                    </a>
+                </li>
+                <li>
                     <a href="agregar_usuario.php">
                         <i class="bi bi-circle"></i><span>Agregar Usuarios</span>
                     </a>

@@ -70,7 +70,7 @@ class usuarioController{
             $dtu->editarUsuario($tu);
             
             
-            header("Location: agregar_usuario.php");
+            header("Location: usuario.php");
         } 
         catch (Exception $e) 
         {

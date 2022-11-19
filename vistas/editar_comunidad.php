@@ -1,12 +1,29 @@
 <?php
+
 require_once '../entidades/tbl_comunidad.php';
 require_once '../datos/dt_tbl_comunidad.php';
 require_once '../controladores/comunidadController.php';
 
-$tu = new tbl_comunidad();
 $dtu = new dt_tbl_comunidad();
-$cu = new comunidadController();
+
+$varId_comunidad = 0;
+if(isset($varId_comunidad))
+{
+    $varId_comunidad = $_GET['id_comunidad'];
+}
+
+$data_comunidad = $dtu->mostrarComunidad($varId_comunidad);
+
+if(isset($_POST['m'])){
+    $metodo = $_POST['m'];
+    if(method_exists("comunidadController",$metodo))
+    {
+        comunidadController::{$metodo}();
+    }
+   
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -220,7 +237,7 @@ $cu = new comunidadController();
             <li class="nav-item dropdown pe-3">
     
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="assets/img/logo2.png" alt="Profile" class="rounded-circle">
+                    <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
                     <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
                 </a><!-- End Profile Iamge Icon -->
     
@@ -287,64 +304,50 @@ $cu = new comunidadController();
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Comunidades</h1>
+      <h1>Editar Comunidad</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Comunidades</li>
+          <li class="breadcrumb-item active">Editar Comunidad</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
     <section class="section">
-    <section class="section">
       <div class="row">
         <div class="col-lg-12">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Usuarios Agregados</h5>
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Responsable</th>
-                    <th>Descuento</th>
-                    <th>Acción</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                    foreach($dtu->listarComunidad() as $r):
-                  ?>
-                  <tr>
-                    <td><?php echo $r->getIdComunidad(); ?></td>
-                    <td><?php echo $r->getNombre(); ?></td>
-                    <td><?php echo $r->getResponsable(); ?></td>
-                    <td><?php echo $r->getDescContribucion(); ?></td>
-                    <td>
-                        <a href="editar_comunidad.php?id_comunidad=<?php echo $r->getIdComunidad(); ?>">
-                            <i class="bi bi-pencil-square" title="Editar Comunidad"></i>
-                        </a>
-                        &nbsp;&nbsp;
-                        <a href="#">
-                            <i class="bi bi-trash3" title="Eliminar Comunidad"></i>
-                        </a>
-                    </td>
-                  </tr>
-                  <?php endforeach;?>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
+            <form action="" method="POST">
+                <div class="row mb-3">
+                    <input type="hidden" value="<?php echo $data_comunidad->getIdComunidad(); ?>" name="id_comunidad" />
+                    <label class="col-sm-2 col-form-table">Nombre:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="nombre" value="<?php echo $data_comunidad->getNombre();?>" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-table">Responsable:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="responsable" class="form-control" value="<?php echo $data_comunidad->getResponsable(); ?>" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-table">Descuento:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="desc_contribucion" class="form-control" value="<?php echo $data_comunidad->getDescContribucion(); ?>" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Actualizar Comunidad</button>
+                        <input type="hidden" name="m" value="editarComunidad">
+                    </div>
+                </div>
+            </form>
         </div>
-
       </div>
     </section>
-    </section>
+
 
   </main><!-- End #main -->
 

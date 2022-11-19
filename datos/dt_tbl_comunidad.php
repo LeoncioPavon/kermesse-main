@@ -78,6 +78,51 @@ class dt_tbl_comunidad extends Conexion
         }
         
     }
+    public function editarComunidad(tbl_comunidad $tu)
+    {
+        try 
+        {
+            $sql = 'UPDATE tbl_comunidad SET nombre = ?, responsable = ?, desc_contribucion = ?, estado = 2 where id_comunidad = ?';
+            $query = $this->conectar()->prepare($sql);
+            $query->execute(array(
+                $tu->getNombre(),
+                $tu->getResponsable(),
+                $tu->getDescContribucion(),
+                $tu->getIdComunidad()
+            ));
+        } 
+        catch (Exception $e) 
+        {
+            die($e->getMessage());
+        }
+    }
 
+    public function mostrarComunidad($id_comunidad)
+    {
+        try 
+        {
+            $sql = "SELECT * FROM tbl_comunidad where estado<>3 and id_comunidad = ?;"; 
+            //$result = array(); 
+            $stm = $this->conectar()->prepare($sql);
+            $stm->execute(array($id_comunidad));
+
+            $r = $stm->fetch(PDO::FETCH_OBJ);
+
+            $tu = new tbl_comunidad();
+
+            $tu->setIdComunidad($r->id_comunidad);
+            $tu->setNombre($r->nombre);
+            $tu->setResponsable($r->responsable);
+            $tu->setDescContribucion($r->desc_contribucion);
+            $tu->setEstado($r->estado);
+
+            //$result[] = $tu;   
+            return $tu;
+        } 
+        catch (Exception $e) 
+        {
+            die($e->getMessage());
+        }
+    }
 }
 ?>

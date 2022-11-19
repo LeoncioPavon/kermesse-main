@@ -33,4 +33,33 @@ class comunidadController
             die($e->getMessage());
         }
     }
+
+    public function editarComunidad()
+    {
+        try 
+        {
+            $id_comunidad = $_REQUEST['id_comunidad'];
+            $nombre = $_REQUEST['nombre'];
+            $responsable = $_REQUEST['responsable'];
+            $desc_contribucion = $_REQUEST['desc_contribucion'];
+            
+            $tu = new tbl_comunidad();
+            $dtu = new dt_tbl_comunidad();
+
+            $tu->setIdComunidad($id_comunidad);
+            $tu->setNombre($nombre);
+            $tu->setResponsable($responsable);
+            $tu->setDescContribucion($desc_contribucion);
+
+            //$this->usuario->guardarUsuario($tu);
+            $dtu->editarComunidad($tu);
+            
+            
+            header("Location: comunidad.php");
+        } 
+        catch (Exception $e) 
+        {
+            die($e->getMessage());
+        }
+    }
 }

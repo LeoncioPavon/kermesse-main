@@ -36,7 +36,7 @@ class categoriaController
         try 
         {
             
-            $id_categoria_producto = $_REQUEST['id_categoria_producto'];
+            $id_categoria_producto = $_REQUEST['id_categoria'];
             $nombre = $_REQUEST['nombre'];
             $descripcion = $_REQUEST['descripcion'];
         

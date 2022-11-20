@@ -9,7 +9,7 @@ $dtu = new dt_tbl_categoria();
 $varId_categoria = 0;
 if(isset($varId_categoria))
 {
-    $varId_categoria = $_GET['id_categoria_producto'];
+    $varId_categoria = $_GET['id_categoria'];
 }
 
 $data_categoria = $dtu->mostrarCategoria($varId_categoria);
@@ -317,7 +317,7 @@ if(isset($_POST['m'])){
         <div class="col-lg-12">
             <form action="" method="POST">
                 <div class="row mb-3">
-                    <input type="hidden" value="<?php echo $data_categoria->getIdCategoriaProducto(); ?>" name="id_categoria_producto" />
+                    <input type="hidden" value="<?php echo $data_categoria->getIdCategoriaProducto(); ?>" name="id_categoria" />
                     <label class="col-sm-2 col-form-table">Nombre:</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="nombre" value="<?php echo $data_categoria->getNombre();?>" />

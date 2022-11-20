@@ -76,11 +76,12 @@ class dt_tbl_categoria extends Conexion
     {
         try 
         {
-            $sql = 'UPDATE tbl_categoria_producto SET nombre = ?, descripcion = ?, estado = 2 where id_categoria_producto = ?';
+            $sql = "UPDATE tbl_categoria_producto SET nombre = ?, descripcion = ?, estado = 2 where id_categoria_producto = ?";
             $query = $this->conectar()->prepare($sql);
             $query->execute(array(
                 $tu->getNombre(),
                 $tu->getDescripcion(),
+                $tu->getIdCategoriaProducto()
             ));
         } 
         catch (Exception $e) 

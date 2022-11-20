@@ -82,7 +82,7 @@ class dt_tbl_comunidad extends Conexion
     {
         try 
         {
-            $sql = 'UPDATE tbl_comunidad SET nombre = ?, responsable = ?, desc_contribucion = ?, estado = 2 where id_comunidad = ?';
+            $sql = "UPDATE tbl_comunidad SET nombre = ?, responsable = ?, desc_contribucion = ?, estado = 2 where id_comunidad = ?";
             $query = $this->conectar()->prepare($sql);
             $query->execute(array(
                 $tu->getNombre(),

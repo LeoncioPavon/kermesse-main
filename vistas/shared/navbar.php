@@ -35,7 +35,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="categorias.php">
+                    <a href="categoria.php">
                         <i class="bi bi-circle"></i><span>Categorias</span>
                     </a>
                 </li>

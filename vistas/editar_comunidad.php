@@ -23,8 +23,6 @@ if(isset($_POST['m'])){
    
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -337,11 +335,11 @@ if(isset($_POST['m'])){
                         <input type="text" name="desc_contribucion" class="form-control" value="<?php echo $data_comunidad->getDescContribucion(); ?>" />
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary">Actualizar Comunidad</button>
-                        <input type="hidden" name="m" value="editarComunidad">
-                    </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-outline-primary">Actualizar Comunidad</button>
+                    <input type="hidden" name="m" value="editarComunidad">
+                    <button type="submit" href="comunidad.php" class="btn btn-outline-secondary">Cancelar</button>
+                    <input type="hidden" value="enviar" onclick = "location='/vistas/comunidad.php'"/>
                 </div>
             </form>
         </div>

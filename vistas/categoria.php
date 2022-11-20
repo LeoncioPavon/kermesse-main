@@ -323,7 +323,7 @@ $cu = new categoriaController();
                     <td><?php echo $r->getNombre(); ?></td>
                     <td><?php echo $r->getDescripcion(); ?></td>
                     <td>
-                        <a href="editar_categoria.php?id_comunidad=<?php echo $r->getIdCategoriaProducto(); ?>">
+                        <a href="editar_categoria.php?id_categoria=<?php echo $r->getIdCategoriaProducto(); ?>">
                             <i class="bi bi-pencil-square" title="Editar Categoria"></i>
                         </a>
                         &nbsp;&nbsp;

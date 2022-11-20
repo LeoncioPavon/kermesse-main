@@ -1,29 +1,28 @@
 <?php
 
-require_once '../entidades/tbl_usuario.php';
-require_once '../datos/dt_tbl_usuario.php';
-require_once '../controladores/usuarioController.php';
+require_once '../entidades/tbl_categoria_producto.php';
+require_once '../datos/dt_tbl_categoria.php';
+require_once '../controladores/categoriaController.php';
 
-$dtu = new dt_tbl_usuario();
+$dtu = new dt_tbl_categoria();
 
-$varId_usuario = 0;
-if(isset($varId_usuario))
+$varId_categoria = 0;
+if(isset($varId_categoria))
 {
-    $varId_usuario = $_GET['id_usuario'];
+    $varId_categoria = $_GET['id_categoria_producto'];
 }
 
-$data_usuario = $dtu->mostrarUsuario($varId_usuario);
+$data_categoria = $dtu->mostrarCategoria($varId_categoria);
 
 if(isset($_POST['m'])){
     $metodo = $_POST['m'];
-    if(method_exists("usuarioController",$metodo))
+    if(method_exists("categoriaController",$metodo))
     {
-        usuarioController::{$metodo}();
+        categoriaController::{$metodo}();
     }
    
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -303,12 +302,12 @@ if(isset($_POST['m'])){
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Editar Usuario</h1>
+      <h1>Editar Categoria</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item">Seguridad</li>
-          <li class="breadcrumb-item active">Editar Usuario</li>
+          <li class="breadcrumb-item">Pages</li>
+          <li class="breadcrumb-item active">Editar Categoria</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -318,41 +317,23 @@ if(isset($_POST['m'])){
         <div class="col-lg-12">
             <form action="" method="POST">
                 <div class="row mb-3">
-                    <input type="hidden" value="<?php echo $data_usuario->getIdUsuario(); ?>" name="id_usuario" />
+                    <input type="hidden" value="<?php echo $data_categoria->getIdCategoriaProducto(); ?>" name="id_categoria_producto" />
                     <label class="col-sm-2 col-form-table">Nombre:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="nombre" value="<?php echo $data_usuario->getNombres();?>" />
+                        <input type="text" class="form-control" name="nombre" value="<?php echo $data_categoria->getNombre();?>" />
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm-2 col-form-table">Apellido:</label>
+                    <label class="col-sm-2 col-form-table">Descripcion:</label>
                     <div class="col-sm-10">
-                        <input type="text" name="apellido" class="form-control" value="<?php echo $data_usuario->getApellidos(); ?>" />
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-form-table">Email:</label>
-                    <div class="col-sm-10">
-                        <input type="email" name="email" class="form-control" value="<?php echo $data_usuario->getEmail(); ?>" />
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-form-table">Usuario:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="usuario" class="form-control" value="<?php echo $data_usuario->getUsuario(); ?>" />
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-form-table">Contraseña:</label>
-                    <div class="col-sm-10">
-                        <input type="password" name="pwd" class="form-control" />
+                        <input type="text" name="descripcion" class="form-control" value="<?php echo $data_categoria->getDescripcion();?>" />
                     </div>
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-outline-primary">Actualizar Usuario</button>
-                    <input type="hidden" name="m" value="editarUsuario">
-                    <button type="submit" href="usuario.php" class="btn btn-outline-secondary">Cancelar</button>
-                    <input type="hidden" value="enviar" onclick = "location='/vistas/usuario.php'"/>
+                    <button type="submit" class="btn btn-outline-primary">Actualizar Categoria</button>
+                    <input type="hidden" name="m" value="editarCategoria">
+                    <button type="submit" href="categorias.php" class="btn btn-outline-secondary">Cancelar</button>
+                    <input type="hidden" value="enviar" onclick = "location='/vistas/categorias.php'"/>
                 </div>
             </form>
         </div>

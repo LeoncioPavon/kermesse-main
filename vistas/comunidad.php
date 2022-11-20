@@ -303,7 +303,7 @@ $cu = new comunidadController();
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Comunidades Agregados</h5>
+              <h5 class="card-title">Comunidades Agregadas</h5>
               <table class="table table-hover">
                 <thead>
                   <tr>

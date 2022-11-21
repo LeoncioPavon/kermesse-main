@@ -288,7 +288,10 @@
     </div><!-- End Page Title -->
 
     <section class="section">
-    
+    <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Parroquias Agregadas</h5>
+              <h5 class="card-title">En Proceso...</h5>
     </section>
 
   </main><!-- End #main -->

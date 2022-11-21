@@ -302,39 +302,60 @@ if(isset($_POST['m'])){
     </div><!-- End Page Title -->
 
     <section class="section">
-       <!-- Formulario para agregar Usuario--> 
-       <div class="card">
+        <!-- Formulario para agregar Usuario-->
+        <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Agregar datos de la Comunidad</h5>
+                <h5 class="card-title">Agregar datos de la Comunidad</h5>
+    
+                <!-- Floating Labels Form -->
+                <form class="row g-3 needs-validation" novalidate method="POST">
+                    <div class="col-md-12">
+                        <input type="hidden" value="guardar" name="txtaccion" />
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="validationCustom01" id="floatingName" placeholder="Your Name" 
+                                name="nombre" required>
+                            <label for="floatingName" id="validationCustom01">Nombre</label>
+                            <div class="valid-feedback">
 
-              <!-- Floating Labels Form -->
-              <form class="row g-3" method="POST">
-                <div class="col-md-12">
-                <input type="hidden" value="guardar" name="txtaccion" />
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name" name="nombre">
-                    <label for="floatingName">Nombre</label>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name" name="responsable">
-                    <label for="floatingName">Responsable</label>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name" name="desccontribucion">
-                    <label for="floatingName">Descuento</label>
-                  </div>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-outline-primary">Agregar Comunidad</button>
-                    <input type="hidden" name="m" value="guardarComunidad">
-                    <button type="button" class="btn btn-outline-secondary">Cancelar</button>
-                </div>
-              </form><!-- End floating Labels Form -->
+                            </div>
+                            <div class="invalid-feedback">
+                            Rellena este campo
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="validationCustom02" id="floatingName" placeholder="Your Name"
+                                name="responsable" required>
+                            <label for="floatingName" id="validationCustom02">Responsable</label>
+                            <div class="valid-feedback">
 
+                            </div>
+                            <div class="invalid-feedback">
+                            Rellena este campo
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="validationCustom03" id="floatingName" placeholder="Your Name"
+                                name="desccontribucion" required>
+                            <label for="floatingName" id="validationCustom03">Descuento</label>
+                            <div class="valid-feedback">
+
+                            </div>
+                            <div class="invalid-feedback">
+                            Rellena este campo
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-outline-primary">Agregar Comunidad</button>
+                        <input type="hidden" name="m" value="guardarComunidad">
+                        <button type="button" class="btn btn-outline-secondary">Cancelar</button>
+                    </div>
+                </form><!-- End floating Labels Form -->
+    
     </section>
 
   </main><!-- End #main -->

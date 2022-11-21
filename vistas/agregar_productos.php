@@ -318,80 +318,87 @@ $cu = new categoriaController();
     </div><!-- End Page Title -->
 
     <section class="section">
-       <!-- Formulario para agregar Usuario--> 
-       <div class="card">
+        <!-- Formulario para agregar Usuario-->
+        <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Agregar Datos del Producto</h5>
-
-              <!-- Floating Labels Form -->
-              <form class="row g-3" method="POST">
-                <div class="col-md-12">
-                <input type="hidden" value="guardar" name="txtaccion" />
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name"  name="nombre">
-                    <label for="floatingName">Nombre</label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-floating">
-                    <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;"  name="descripcion"></textarea>
-                    <label for="floatingTextarea">Descripción</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="col-md-12">
-                    <div class="form-floating">
-                      <input type="text" class="form-control" id="floatingCity" placeholder="City"  name="preciov_sugerido">
-                      <label for="floatingCity">Precio</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                <div class="col-md-12">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingZip" placeholder="Zip"  name="cantidad">
-                    <label for="floatingZip">Cantidad</label>
-                  </div>
-                </div>
-                </div>
-                <div class="col-md-6">
+                <h5 class="card-title">Agregar Datos del Producto</h5>
+    
+                <!-- Floating Labels Form -->
+                <form class="row g-3" method="POST">
                     <div class="col-md-12">
+                        <input type="hidden" value="guardar" name="txtaccion" />
                         <div class="form-floating">
-                            <select class="form-control" id="floatingZip" placeholder="Zip" name="id_categoria">
-                            <option selected>Selecciona Una Categoria</option>
-                                <?php
+                            <input type="text" class="form-control" id="floatingName" placeholder="Your Name"
+                                name="nombre">
+                            <label for="floatingName">Nombre</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Address" id="floatingTextarea"
+                                style="height: 100px;" name="descripcion"></textarea>
+                            <label for="floatingTextarea" >Descripción</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingCity" placeholder="City"
+                                    name="preciov_sugerido">
+                                <label for="floatingCity">Precio</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingZip" placeholder="Zip" name="cantidad">
+                                <label for="floatingZip">Cantidad</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <select class="form-control" id="floatingZip" placeholder="Zip" name="id_categoria">
+                                    <option selected>Selecciona Una Categoria</option>
+                                    <?php
                                     foreach ($dtu->listarCategoriaPrueba() as $r):
-                                ?>   
-                                <option value="<? echo $r->getIdCategoriaProducto(); ?>"><?php echo $r->getNombre(); ?></option> 
-                                <?php endforeach; ?> 
-                            </select>
-                            <label for="floatingSelect">Categoria</label>
+                                    ?>
+                                    <option value="<? echo $r->getIdCategoriaProducto(); ?>">
+                                        <?php echo $r->getNombre(); ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <label for="floatingSelect">Categoria</label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="col-md-12">
-                        <div class="form-floating">
-                            <select class="form-control" id="floatingZip" placeholder="Zip" name="id_comunidad">
-                            <option selected>Selecciona Una Comunidad</option>
-                                <?php
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <select class="form-control" id="floatingZip" placeholder="Zip" name="id_comunidad">
+                                    <option selected>Selecciona Una Comunidad</option>
+                                    <?php
                                     foreach ($dta->listarComunidadPrueba() as $r):
-                                ?>    
-                                <option value="<? echo $r->getIdComunidad(); ?>"><?php echo $r->getNombre(); ?></option>
-                                <?php endforeach; ?> 
-                            </select>
-                            <label for="floatingSelect">Comunidad</label>
+                                    ?>
+                                    <option value="<? echo $r->getIdComunidad(); ?>">
+                                        <?php echo $r->getNombre(); ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <label for="floatingSelect">Comunidad</label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-outline-primary">Agregar Producto</button>
-                    <input type="hidden" name="m" value="guardarProducto">
-                    <button type="button" class="btn btn-outline-secondary">Cancelar</button>
-                </div>
-              </form>
-              <!-- End floating Labels Form -->
-
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-outline-primary">Agregar Producto</button>
+                        <input type="hidden" name="m" value="guardarProducto">
+                        <button type="button" class="btn btn-outline-secondary">Cancelar</button>
+                    </div>
+                </form>
+                <!-- End floating Labels Form -->
+    
     </section>
   </main>
   <!-- End #main -->

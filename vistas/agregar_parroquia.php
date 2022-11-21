@@ -288,53 +288,100 @@
     </div><!-- End Page Title -->
 
     <section class="section">
-       <!-- Formulario para agregar Usuario--> 
-       <div class="card">
+        <!-- Formulario para agregar Parroquia-->
+        <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Agregar datos de la Parroquia</h5>
-              <form class="row g-3">
-                <div class="col-md-12">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
-                    <label for="floatingName">Nombre</label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-floating">
-                    <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;"></textarea>
-                    <label for="floatingTextarea">Dirección</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingEmail" placeholder="Your Email">
-                    <label for="floatingEmail">Teléfono</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Parroco</label>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
-                    <span class="input-group-text" for="floatingName">https://example.com/users/</span>
-                    <label for="floatingName">Sitio Web de la Parroquia</label>
-                  </div>
-                </div>
-                <div class="form-floating">
-                  <div class="col-sm-10">
-                    <label for="basic-url" class="form-label">Logo de la Parroquia</label>
-                    <input class="form-control" type="file" id="formFile">
-                  </div>
-                </div>
-                <div class="text-center">
-                    <button type="button" class="btn btn-outline-primary">Agregar Parroquia</button>
-                    <button type="button" class="btn btn-outline-secondary">Cancelar</button>
-                </div>
-              </form><!-- End floating Labels Form -->
+                <h5 class="card-title">Agregar datos de la Parroquia</h5>
+    
+                <!-- Floating Labels Form -->
+                <form class="row g-3 needs-validation" novalidate method="POST">
+                    <div class="col-md-12">
+                        <input type="hidden" value="guardar" name="txtaccion" />
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="validationCustom01" id="floatingName"
+                                placeholder="Your Name" name="nombre" required>
+                            <label for="floatingName" id="validationCustom01">Nombre</label>
+                            <div class="valid-feedback">
+    
+                            </div>
+                            <div class="invalid-feedback">
+                                Rellena este campo
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="validationCustom02" id="floatingName"
+                                placeholder="Your Adress" name="direccion" required>
+                            <label for="floatingName" id="validationCustom02">Direccion</label>
+                            <div class="valid-feedback">
+    
+                            </div>
+                            <div class="invalid-feedback">
+                                Rellena este campo
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="validationCustom03" id="floatingName"
+                                placeholder="Your Number" name="telefono" required>
+                            <label for="floatingName" id="validationCustom03">Teléfono</label>
+                            <div class="valid-feedback">
+    
+                            </div>
+                            <div class="invalid-feedback">
+                                Rellena este campo
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="validationCustom04" id="floatingName"
+                                placeholder="Your Parroco" name="parroco" required>
+                            <label for="floatingName" id="validationCustom04">Parroco</label>
+                            <div class="valid-feedback">
+    
+                            </div>
+                            <div class="invalid-feedback">
+                                Rellena este campo
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="validationCustom5" id="floatingName"
+                                placeholder="Your URL" name="URL" required>
+                            <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+                            <label for="floatingName" id="validationCustom5">Sitio Web de la Parroquia</label>
+                            <div class="valid-feedback">
+    
+                            </div>
+                            <div class="invalid-feedback">
+                                Rellena este campo
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                        <div class="col-sm-10">
+                            <input class="form-control" type="file" id="formFile" 
+                                name="logo" id="validationCustom6" required>
+                                <span class="input-group-text" id="basic-addon3">Logo de La Parroquia</span>
+                            <div class="valid-feedback">
+    
+                            </div>
+                            <div class="invalid-feedback">
+                                Ingresa tu logo
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-outline-primary">Agregar Parroquia</button>
+                        <button type="button" class="btn btn-outline-secondary">Cancelar</button>
+                    </div>
+                </form><!-- End floating Labels Form -->
     </section>
 
   </main><!-- End #main -->

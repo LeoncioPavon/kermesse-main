@@ -7,7 +7,6 @@ $tu = new tbl_usuario();
 $dtu = new dt_tbl_usuario();
 $cu = new usuarioController();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

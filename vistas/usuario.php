@@ -333,13 +333,13 @@ if(isset($_GET['id_usuario']))
                     <td><?php echo $r->getUsuario(); ?></td>
                     <td>
                     <a href="editar_usuario.php?id_usuario=<?php echo $r->getIdUsuario(); ?>">
-                        <i class="bi bi-pencil-square" title="Editar Usuario"></i>
+                        <button type="button" class="btn btn-outline-success" title="Editar Usuario">Editar</button>
                        </a>
                        <a href="usuario.php?id_usuario=<?php echo $r->getIdUsuario();?>">
-                        <i class="bi bi-trash3" title="Eliminar Usuario"></i>
+                        <button type="button" class="btn btn-outline-danger" title="Eliminar Usuario">Eliminar</button>
                        </a>
                        <a href="agregar_rol_usuario.php?id_usuario=<?php echo $r->getIdUsuario();?>">
-                        <i class="bi bi-person-badge-fill" title="Agregar Rol a Usuario"></i>
+                        <button type="button" class="btn btn-outline-secondary"  title="Agregar Rol a Usuario">Asignar Rol</button>
                        </a>
                     </td>
                   </tr>

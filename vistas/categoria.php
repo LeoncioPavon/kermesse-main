@@ -324,11 +324,13 @@ $cu = new categoriaController();
                     <td><?php echo $r->getDescripcion(); ?></td>
                     <td>
                         <a href="editar_categoria.php?id_categoria=<?php echo $r->getIdCategoriaProducto(); ?>">
-                            <i class="bi bi-pencil-square" title="Editar Categoria"></i>
+                            <button type="button" class="btn btn-outline-success" title="Editar Categoria">Editar</button>
                         </a>
-                        &nbsp;&nbsp;
-                        <a href="#">
-                            <i class="bi bi-trash3" title="Eliminar Categoria"></i>
+                        <a href="categoria.php?id_categoria=<?php echo $r->getIdCategoriaProducto(); ?>">
+                            <button type="button" class="btn btn-outline-danger" title="Eliminar Categoria">Eliminar</button>
+                        </a>
+                        <a href="agregar_categoria_producto.php?id_categoria=<?php echo $r->getIdCategoriaProducto();?>">
+                            <button type="button" class="btn btn-outline-secondary"  title="Agregar Categoria a Producto">Asignar Categoria</button>
                         </a>
                     </td>
                   </tr>

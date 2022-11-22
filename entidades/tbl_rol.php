@@ -28,15 +28,4 @@ class tbl_rol{
     public function setEstado($estado){
         $this->estado = $estado;
     } 
-
-    //Otro método
-    /*
-    public function __GET($k)
-    { 
-        return $this->$k; 
-    }
-	public function __SET($k, $v)
-    { 
-        return $this->$k = $v; 
-    } */
 }

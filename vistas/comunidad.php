@@ -6,6 +6,13 @@ require_once '../controladores/comunidadController.php';
 $tu = new tbl_comunidad();
 $dtu = new dt_tbl_comunidad();
 $cu = new comunidadController();
+
+if(isset($_GET['id_comunidad']))
+{
+    $id_comunidad = $_GET['id_comunidad'];
+    $dtu->eliminarComunidad($id_comunidad);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -325,11 +332,10 @@ $cu = new comunidadController();
                     <td><?php echo $r->getDescContribucion(); ?></td>
                     <td>
                         <a href="editar_comunidad.php?id_comunidad=<?php echo $r->getIdComunidad(); ?>">
-                            <i class="bi bi-pencil-square" title="Editar Comunidad"></i>
+                            <button type="button" class="btn btn-outline-success" title="Editar Comunidad">Editar</button>
                         </a>
-                        &nbsp;&nbsp;
-                        <a href="#">
-                            <i class="bi bi-trash3" title="Eliminar Comunidad"></i>
+                        <a href="comunidad.php?id_comunidad=<?php echo $r->getIdComunidad(); ?>">
+                            <button type="button" class="btn btn-outline-danger" title="Eliminar Comunidad">Eliminar</button>
                         </a>
                     </td>
                   </tr>

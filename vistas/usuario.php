@@ -6,6 +6,13 @@ require_once '../controladores/usuarioController.php';
 $tu = new tbl_usuario();
 $dtu = new dt_tbl_usuario();
 $cu = new usuarioController();
+
+
+if(isset($_GET['id_usuario']))
+{
+    $id_usuario = $_GET['id_usuario'];
+    $dtu->eliminarUsuario($id_usuario);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -325,13 +332,15 @@ $cu = new usuarioController();
                     <td><?php echo $r->getEmail(); ?></td>
                     <td><?php echo $r->getUsuario(); ?></td>
                     <td>
-                        <a href="editar_usuario.php?id_usuario=<?php echo $r->getIdUsuario(); ?>">
-                            <i class="bi bi-pencil-square" title="Editar Usuario"></i>
-                        </a>
-                        &nbsp;&nbsp;
-                        <a href="#">
-                            <i class="bi bi-trash3" title="Eliminar Usuario"></i>
-                        </a>
+                    <a href="editar_usuario.php?id_usuario=<?php echo $r->getIdUsuario(); ?>">
+                        <i class="bi bi-pencil-square" title="Editar Usuario"></i>
+                       </a>
+                       <a href="usuario.php?id_usuario=<?php echo $r->getIdUsuario();?>">
+                        <i class="bi bi-trash3" title="Eliminar Usuario"></i>
+                       </a>
+                       <a href="agregar_rol_usuario.php?id_usuario=<?php echo $r->getIdUsuario();?>">
+                        <i class="bi bi-person-badge-fill" title="Agregar Rol a Usuario"></i>
+                       </a>
                     </td>
                   </tr>
                   <?php endforeach;?>

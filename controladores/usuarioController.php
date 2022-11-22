@@ -77,4 +77,21 @@ class usuarioController{
             die($e->getMessage());
         }
     }
+    public static function eliminarUsuario()
+    {
+     try 
+     {
+         $id = $_REQUEST['id_usuario'];
+         
+         $dtu = new dt_tbl_usuario();
+ 
+         $dtu->editarUsuario($id);
+ 
+         header("Location: usuario.php");
+     } 
+     catch (Exception $e) 
+     {
+         die($e->getMessage());
+     }
+    } 
 }

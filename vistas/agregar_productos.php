@@ -360,13 +360,13 @@ $cu = new categoriaController();
                     <div class="col-md-6">
                         <div class="col-md-12">
                             <div class="form-floating">
-                                <select class="form-control" id="floatingZip" placeholder="Zip" name="id_categoria">
+                                <select class="form-control" id="floatingZip" placeholder="Zip">
                                     <option selected>Selecciona Una Categoria</option>
                                     <?php
                                     foreach ($dtu->listarCategoriaPrueba() as $r):
                                     ?>
-                                    <option value="<? echo $r->getIdCategoriaProducto(); ?>">
-                                        <?php echo $r->getNombre(); ?>
+                                    <option>
+                                        <?php echo $r->getIdCategoriaProducto(); ?>&nbsp;<?php echo $r->getNombre(); ?>
                                     </option>
                                     <?php endforeach; ?>
                                 </select>
@@ -377,13 +377,13 @@ $cu = new categoriaController();
                     <div class="col-md-6">
                         <div class="col-md-12">
                             <div class="form-floating">
-                                <select class="form-control" id="floatingZip" placeholder="Zip" name="id_comunidad">
+                                <select class="form-control" id="floatingZip" placeholder="Zip">
                                     <option selected>Selecciona Una Comunidad</option>
                                     <?php
                                     foreach ($dta->listarComunidadPrueba() as $r):
                                     ?>
-                                    <option value="<? echo $r->getIdComunidad(); ?>">
-                                        <?php echo $r->getNombre(); ?>
+                                    <option>
+                                        <?php echo $r->getIdComunidad(); ?>&nbsp;<?php echo $r->getNombre(); ?>
                                     </option>
                                     <?php endforeach; ?>
                                 </select>

@@ -325,6 +325,8 @@ if(isset($_POST['m'])){
               <h5 class="card-title">Lista de Roles</h5>
               <h4 class="card-title"><?php echo $data_usuario->getNombres() . " ". $data_usuario->getApellidos(); ?></h4>
               <div class="row mb-3 mt-3">
+                <form>
+                    <div class="row mb-3 mt-3">
                 <label class="col-sm-2">Seleccionar Rol:</label>
                 <select class="col-sm-10" name="" id="">
                     <option value="0">SELECCIONE</option>
@@ -334,6 +336,12 @@ if(isset($_POST['m'])){
                     <option value="<?php echo $rol->getIdRol(); ?>"><?php echo $rol->getRolDescripcion(); ?></option>
                     <?php endforeach; ?>
                 </select>
+                    </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-outline-primary">Asignar Rol</button>
+                    <input type="hidden" name="m" value="asignarRol">
+                </div>
+                </form>
               </div>
               <table class="table usuariosTable">
                 <thead>

@@ -29,7 +29,7 @@ class tbl_parroquia{
         return $this->direccion;
     }
 
-    public function setIdRolUsuario($direccion){
+    public function setDireccion($direccion){
         $this->direccion = $direccion;
     }
 
@@ -63,14 +63,4 @@ class tbl_parroquia{
     public function setSitioWeb($sitio_web){
         $this->sitio_web = $sitio_web;
     }
-     //Otro método
-    /*
-    public function __GET($k)
-    { 
-        return $this->$k; 
-    }
-	public function __SET($k, $v)
-    { 
-        return $this->$k = $v; 
-    } */
 }

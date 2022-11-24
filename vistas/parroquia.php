@@ -1,3 +1,19 @@
+<?php
+require_once '../entidades/tbl_parroquia.php';
+require_once '../datos/dt_tbl_parroquia.php';
+require_once '../controladores/parroquiaController.php';
+
+$tu = new tbl_parroquia();
+$dtu = new dt_tbl_parroquia();
+$cu = new parroquiaController();
+
+
+if(isset($_GET['idParroquia']))
+{
+    $idParroquia = $_GET['idParroquia'];
+    $dtu->eliminarParroquia($idParroquia);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -288,10 +304,55 @@
     </div><!-- End Page Title -->
 
     <section class="section">
-    <div class="card">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
             <div class="card-body">
               <h5 class="card-title">Parroquias Agregadas</h5>
-              <h5 class="card-title">En Proceso...</h5>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                    <th>Parroco</th>
+                    <th>Logo</th>
+                    <th>Sitio Web</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                    foreach($dtu->listarParroquia() as $r):
+                  ?>
+                  <tr>
+                    <td><?php echo $r->getIdParroquia(); ?></td>
+                    <td><?php echo $r->getNombre(); ?></td>
+                    <td><?php echo $r->getDireccion(); ?></td>
+                    <td><?php echo $r->getTelefono(); ?></td>
+                    <td><?php echo $r->getParroco(); ?></td>
+                    <td><img src="assets/img/<?php echo $r->getLogo(); ?>" width="50px" height="50px"></td>
+                    <td><?php echo $r->getSitioWeb(); ?></td>
+                    <td>
+                    <a href="editar_parroquia.php?idParroquia=<?php echo $r->getIdParroquia(); ?>">
+                        <button type="button" class="btn btn-outline-success" title="Editar Parroquia">Editar</button>
+                       </a>
+                       <a href="parroquia.php?idParroquia=<?php echo $r->getIdParroquia();?>">
+                        <button type="button" class="btn btn-outline-danger" title="Eliminar Parroquia">Eliminar</button>
+                       </a>
+                    </td>
+                  </tr>
+                  <?php endforeach;?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
     </section>
 
   </main><!-- End #main -->

@@ -378,8 +378,8 @@ if (isset($_POST['m'])) {
                     <div class="col-md-6">
                         <div class="form-floating">
                             <div class="col-sm-10">
-                                <input class="form-control" type="file" id="formFile" name="file" id="validationCustom6"
-                                    required>
+                                <input id="validationCustom6" class="form-control" type="file" name="file" required/>
+                                
                                 <span class="input-group-text" id="basic-addon3">Logo de La Parroquia</span>
                                 <div class="valid-feedback">
     

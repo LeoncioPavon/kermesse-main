@@ -4,7 +4,7 @@ require_once("conexion.php");
 require_once("../entidades/tbl_parroquia.php");
 class dt_tbl_parroquia extends Conexion{
 
-    public function listaParroquia()
+    public function listarParroquia()
     {    
         try
         {
@@ -16,7 +16,7 @@ class dt_tbl_parroquia extends Conexion{
             foreach($stm->fetchAll(PDO::FETCH_OBJ) as $r)
             {
                 $tu = new tbl_parroquia();
-                $tu->setIdParroquia($r->id_parroquia);
+                $tu->setIdParroquia($r->idParroquia);
                 $tu->setNombre($r->nombre);
                 $tu->setDireccion($r->direccion);
                 $tu->setTelefono($r->telefono);

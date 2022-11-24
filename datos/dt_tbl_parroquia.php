@@ -95,7 +95,7 @@ class dt_tbl_parroquia extends Conexion{
             $tu->setDireccion($r->direccion);
             $tu->setTelefono($r->telefono);
             $tu->setParroco($r->parroco);
-            $tu->setLogo($r->pwd);
+            $tu->setLogo($r->logo);
             $tu->setSitioWeb($r->sitio_web);
 
             return $tu;

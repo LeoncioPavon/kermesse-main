@@ -42,7 +42,7 @@ class parroquiaController{
     }
 
 
-    public function editarUsuario()
+    public function editarParroquia()
     {
         try 
         {

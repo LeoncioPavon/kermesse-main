@@ -1,28 +1,29 @@
 <?php
 
-require_once '../entidades/tbl_usuario.php';
-require_once '../datos/dt_tbl_usuario.php';
-require_once '../controladores/usuarioController.php';
+require_once '../entidades/tbl_parroquia.php';
+require_once '../datos/dt_tbl_parroquia.php';
+require_once '../controladores/parroquiaController.php';
 
-$dtu = new dt_tbl_usuario();
+$dtu = new dt_tbl_parroquia();
 
-$varId_usuario = 0;
-if(isset($varId_usuario))
+$varId_parroquia = 0;
+if(isset($varId_parroquia))
 {
-    $varId_usuario = $_GET['id_usuario'];
+    $varId_parroquia = $_GET['idParroquia'];
 }
 
-$data_usuario = $dtu->mostrarUsuario($varId_usuario);
+$data_parroquia = $dtu->mostrarParroquia($varId_parroquia);
 
 if(isset($_POST['m'])){
     $metodo = $_POST['m'];
-    if(method_exists("usuarioController",$metodo))
+    if(method_exists("parroquiaController",$metodo))
     {
-        usuarioController::{$metodo}();
+        parroquiaController::{$metodo}();
     }
    
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -236,13 +237,13 @@ if(isset($_POST['m'])){
             <li class="nav-item dropdown pe-3">
     
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                    <img src="assets/img/logo2.png" alt="Profile" class="rounded-circle">
+                    <span class="d-none d-md-block dropdown-toggle ps-2">System Color</span>
                 </a><!-- End Profile Iamge Icon -->
     
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6>Kevin Anderson</h6>
+                        <h6>System Color</h6>
                         <span>Web Designer</span>
                     </li>
                     <li>
@@ -250,7 +251,7 @@ if(isset($_POST['m'])){
                     </li>
     
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                        <a class="dropdown-item d-flex align-items-center"  href="perfil.php">
                             <i class="bi bi-person"></i>
                             <span>My Profile</span>
                         </a>
@@ -303,63 +304,118 @@ if(isset($_POST['m'])){
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Editar Usuario</h1>
+      <h1>Editar Parroquia</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item">Seguridad</li>
-          <li class="breadcrumb-item active">Editar Usuario</li>
+          <li class="breadcrumb-item">Pages</li>
+          <li class="breadcrumb-item active">Editar Parroquia</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
     <section class="section">
-      <div class="row">
-        <div class="col-lg-12">
-            <form action="" method="POST">
-                <div class="row mb-3">
-                    <input type="hidden" value="<?php echo $data_usuario->getIdUsuario(); ?>" name="id_usuario" />
-                    <label class="col-sm-2 col-form-table">Nombre:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="nombre" value="<?php echo $data_usuario->getNombres();?>" />
+        <!-- Formulario para editar Parroquia-->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Editar Parroquia</h5>
+    
+                <!-- Floating Labels Form -->
+                <form class="row g-3 needs-validation" novalidate method="POST">
+                    <div class="col-md-12">
+                        <input type="hidden" value="guardar" name="txtaccion" />
+                        <div class="form-floating">
+                            <input type="hidden" value="<?php echo $data_parroquia->getIdParroquia(); ?>"
+                                name="idParroquia" />
+                            <input type="text" class="form-control" id="validationCustom01" id="floatingName" name="nombre"
+                                value="<?php echo $data_parroquia->getNombre(); ?>" required>
+                            <label for="floatingName" id="validationCustom01">Nombre</label>
+                            <div class="valid-feedback">
+    
+                            </div>
+                            <div class="invalid-feedback">
+                                Rellena este campo
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-form-table">Apellido:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="apellido" class="form-control" value="<?php echo $data_usuario->getApellidos(); ?>" />
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="validationCustom02" id="floatingName"
+                                name="direccion" value="<?php echo $data_parroquia->getDireccion(); ?>" required>
+                            <label for="floatingName" id="validationCustom02">Direccion</label>
+                            <div class="valid-feedback">
+    
+                            </div>
+                            <div class="invalid-feedback">
+                                Rellena este campo
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-form-table">Email:</label>
-                    <div class="col-sm-10">
-                        <input type="email" name="email" class="form-control" value="<?php echo $data_usuario->getEmail(); ?>" />
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="validationCustom03" id="floatingName"
+                                name="telefono" value="<?php echo $data_parroquia->getTelefono(); ?>" required>
+                            <label for="floatingName" id="validationCustom03">Teléfono</label>
+                            <div class="valid-feedback">
+    
+                            </div>
+                            <div class="invalid-feedback">
+                                Rellena este campo y/o ingresa un correo electrónico válido
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-form-table">Usuario:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="usuario" class="form-control" value="<?php echo $data_usuario->getUsuario(); ?>" />
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="validationCustom05" id="floatingPassword"
+                                name="parroco" value="<?php echo $data_parroquia->getParroco(); ?>" required>
+                            <label for="floatingPassword" id="validationCustom05">Parroco</label>
+                            <div class="valid-feedback">
+    
+                            </div>
+                            <div class="invalid-feedback">
+                                Rellena este campo
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-form-table">Contraseña:</label>
-                    <div class="col-sm-10">
-                        <input type="password" name="pwd" class="form-control" value="<?php echo $data_usuario->getPwd(); ?>" />
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="validationCustom5" id="floatingName"
+                                name="sitio_web" value="<?php echo $data_parroquia->getSitioWeb(); ?>" required>
+                            <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+                            <label for="floatingName" id="validationCustom5">Sitio Web de la Parroquia</label>
+                            <div class="valid-feedback">
+    
+                            </div>
+                            <div class="invalid-feedback">
+                                Rellena este campo
+                            </div>
+                        </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <div class="col-sm-10">
+                                <input id="validationCustom6" class="form-control" type="file" name="file"
+                                value="<?php echo $data_parroquia->getSitioWeb(); ?>" required/>
+                                
+                                <span class="input-group-text" id="basic-addon3">Logo de La Parroquia</span>
+                                <div class="valid-feedback">
+    
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingresa tu logo
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                    <button type="submit" class="btn btn-outline-primary">Editar Parroquia</button>
+                    <input type="hidden" name="m" value="editarParroquia">
+                    <button type="submit" href="parroquia.php" class="btn btn-outline-secondary">Cancelar</button>
+                    <input type="hidden" value="enviar" onclick = "location='/vistas/parroquia.php'"/>
                 </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-outline-primary">Editar Usuario</button>
-                    <input type="hidden" name="m" value="editarUsuario">
-                    <button type="submit" href="usuario.php" class="btn btn-outline-secondary">Cancelar</button>
-                    <input type="hidden" value="enviar" onclick = "location='/vistas/usuario.php'"/>
-                </div>
-            </form>
-        </div>
-      </div>
+                </form><!-- End floating Labels Form -->
     </section>
-
-  </main><!-- End #main -->
+    </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <?php

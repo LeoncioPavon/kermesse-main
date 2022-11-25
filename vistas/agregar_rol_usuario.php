@@ -2,12 +2,16 @@
 
 require_once '../entidades/tbl_usuario.php';
 require_once '../entidades/tbl_rol.php';
+require_once '../entidades/vw_usuario_rol.php';
 require_once '../datos/dt_tbl_usuario.php';
 require_once '../datos/dt_tbl_rol.php';
+require_once '../datos/dt_rol_usuario.php';
 require_once '../controladores/usuarioController.php';
+require_once '../controladores/rolUsuarioController.php';
 
 $dtu = new dt_tbl_usuario();
 $dtr = new dt_tbl_rol();
+$dtur = new dt_rol_usuario();
 $varId_usuario = 0;
 if(isset($varId_usuario))
 {
@@ -16,12 +20,13 @@ if(isset($varId_usuario))
 
 $data_usuario = $dtu->mostrarUsuario($varId_usuario);
 $lista_rol = $dtr->listarRol();
+$lista_rol_usuario = $dtur->listarRolUsuario($varId_usuario);
 
 if(isset($_POST['m'])){
     $metodo = $_POST['m'];
-    if(method_exists("usuarioController",$metodo))
+    if(method_exists("rolUsuarioController",$metodo))
     {
-        usuarioController::{$metodo}();
+        rolUsuarioController::{$metodo}();
     }
    
 }
@@ -324,25 +329,28 @@ if(isset($_POST['m'])){
             <div class="card-body">
               <h5 class="card-title">Lista de Roles</h5>
               <h4 class="card-title"><?php echo $data_usuario->getNombres() . " ". $data_usuario->getApellidos(); ?></h4>
-              <div class="row mb-3 mt-3">
-                <form>
+              
+                <form action="" method="post">
                     <div class="row mb-3 mt-3">
-                <label class="col-sm-2">Seleccionar Rol:</label>
-                <select class="col-sm-10" name="" id="">
-                    <option value="0">SELECCIONE</option>
-                    <?php
-                        foreach ($lista_rol as $rol):
-                    ?>
-                    <option value="<?php echo $rol->getIdRol(); ?>"><?php echo $rol->getRolDescripcion(); ?></option>
-                    <?php endforeach; ?>
-                </select>
+                        <input type="hidden" name="id_usuario" value="<?php echo $data_usuario->getIdUsuario(); ?>">
+                        <label class="col-sm-2">Seleccionar Rol:</label>
+                        <select class="col-sm-10" name="id_rol" id="">
+                            <option value="0">SELECCIONE</option>
+                            <?php
+                                foreach ($lista_rol as $rol):
+                            ?>
+                            <option value="<?php echo $rol->getIdRol(); ?>"><?php echo $rol->getRolDescripcion(); ?></option>
+                            <?php endforeach; ?>
+                    
+                        </select>
                     </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-outline-primary">Asignar Rol</button>
-                    <input type="hidden" name="m" value="asignarRol">
-                </div>
+                        <div class="col-sm-10 mb-4">
+                            <button type="submit" id="rol" class="btn btn-primary">Asignar rol</button>
+                            <input type="hidden" name="m" value="asignarUsuarioRol">
+                        </div>
+                    
                 </form>
-              </div>
+              
               <table class="table usuariosTable">
                 <thead>
                   <tr>
@@ -352,7 +360,14 @@ if(isset($_POST['m'])){
                   </tr>
                 </thead>
                 <tbody>
-                  
+                  <?php
+                    foreach($lista_rol_usuario as $data): 
+                  ?>
+                  <tr>
+                    <td><?php echo $data->getIdRol(); ?></td>
+                    <td><?php echo $data->getRolDescripcion(); ?></td>
+                  </tr>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
             </div>
@@ -382,6 +397,11 @@ if(isset($_POST['m'])){
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script>
+    document.getElementById("boton").addEventListener("click", function(e){
+        e.preventDefault();
+    })
+  </script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

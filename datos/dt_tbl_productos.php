@@ -15,14 +15,14 @@ class dt_tbl_productos extends Conexion{
 
             foreach($stm->fetchAll(PDO::FETCH_OBJ) as $r)
             {
-                $tu = new tbl_producto();
-                $tu->setIdProducto($r->id_producto);
-                $tu->setNombres($r->nombre);
-                $tu->setDescripcion($r->descripcion);
-                $tu->setPreciovSugerido($r->preciov_sugerido);
-                $tu->setEstado($r->estado);
+                $tp = new tbl_productos();
+                $tp->setIdProducto($r->id_producto);
+                $tp->setNombres($r->nombre);
+                $tp->setDescripcion($r->descripcion);
+                $tp->setPreciovSugerido($r->preciov_sugerido);
+                $tp->setEstado($r->estado);
 
-                $result[] = $tu;
+                $result[] = $tp;
             }
             return $result;
         } catch (Exception $e)
@@ -31,17 +31,17 @@ class dt_tbl_productos extends Conexion{
         }
     }
 
-    public function guardarProducto(tbl_producto $tu)
+    public function guardarProducto(tbl_productos $tp)
     {
         try 
         {
-            $sql = "INSERT INTO `dbkermesse`.`tbl_productos` (`nombre`, `descripcion`, `cantidad`, 
-            `preciov_sugerido`, `estado`) VALUES (?, ?, ?, ?, 1)";
+            $sql = "INSERT INTO tbl_productos (nombre, descripcion, cantidad, preciov_sugerido, estado)
+            VALUES (?,?,?,?,1);";
             $query = $this->conectar()->prepare($sql)->execute(array(
-                $tu->getNombre(), 
-                $tu->getDescripcion(), 
-                $tu->getCantidad(), 
-                $tu->getPreciovSugerido()
+                $tp->getNombre(), 
+                $tp->getDescripcion(), 
+                $tp->getCantidad(), 
+                $tp->getPreciovSugerido(),
             ));
 
             var_dump($query);

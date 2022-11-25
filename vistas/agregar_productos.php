@@ -10,22 +10,6 @@ if(isset($_POST['m'])){
         productoController::{$metodo}();
     }
 }
-
-require_once '../entidades/tbl_comunidad.php';
-require_once '../datos/dt_tbl_comunidad.php';
-require_once '../controladores/comunidadController.php';
-
-$ta = new tbl_comunidad();
-$dta = new dt_tbl_comunidad();
-$ca = new comunidadController();
-
-require_once '../entidades/tbl_categoria_producto.php';
-require_once '../datos/dt_tbl_categoria.php';
-require_once '../controladores/categoriaController.php';
-
-$tu = new tbl_categoria_producto();
-$dtu = new dt_tbl_categoria();
-$cu = new categoriaController();
 ?>
 
 <!DOCTYPE html>
@@ -344,7 +328,7 @@ $cu = new categoriaController();
                         <div class="col-md-12">
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="floatingCity" placeholder="City"
-                                    name="preciov_sugerido">
+                                    name="precio">
                                 <label for="floatingCity">Precio</label>
                             </div>
                         </div>
@@ -354,40 +338,6 @@ $cu = new categoriaController();
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="floatingZip" placeholder="Zip" name="cantidad">
                                 <label for="floatingZip">Cantidad</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-12">
-                            <div class="form-floating">
-                                <select class="form-control" id="floatingZip" placeholder="Zip">
-                                    <option selected>Selecciona Una Categoria</option>
-                                    <?php
-                                    foreach ($dtu->listarCategoriaPrueba() as $r):
-                                    ?>
-                                    <option>
-                                        <?php echo $r->getIdCategoriaProducto(); ?>&nbsp;<?php echo $r->getNombre(); ?>
-                                    </option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <label for="floatingSelect">Categoria</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-12">
-                            <div class="form-floating">
-                                <select class="form-control" id="floatingZip" placeholder="Zip">
-                                    <option selected>Selecciona Una Comunidad</option>
-                                    <?php
-                                    foreach ($dta->listarComunidadPrueba() as $r):
-                                    ?>
-                                    <option>
-                                        <?php echo $r->getIdComunidad(); ?>&nbsp;<?php echo $r->getNombre(); ?>
-                                    </option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <label for="floatingSelect">Comunidad</label>
                             </div>
                         </div>
                     </div>

@@ -5,7 +5,6 @@ require_once '../datos/dt_tbl_usuario.php';
 require_once '../controladores/usuarioController.php';
 
 $dtu = new dt_tbl_usuario();
-
 $varId_usuario = 0;
 if(isset($varId_usuario))
 {
@@ -321,7 +320,7 @@ if(isset($_POST['m'])){
                     <input type="hidden" value="<?php echo $data_usuario->getIdUsuario(); ?>" name="id_usuario" />
                     <label class="col-sm-2 col-form-table">Nombre:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="nombre" value="<?php echo $data_usuario->getNombres();?>" />
+                        <input type="text" class="form-control" name="nombre" value="<?php echo $data_usuario->getNombres(); ?>" />
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -348,11 +347,12 @@ if(isset($_POST['m'])){
                         <input type="password" name="pwd" class="form-control" value="<?php echo $data_usuario->getPwd(); ?>" />
                     </div>
                 </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-outline-primary">Editar Usuario</button>
-                    <input type="hidden" name="m" value="editarUsuario">
-                    <button type="submit" href="usuario.php" class="btn btn-outline-secondary">Cancelar</button>
-                    <input type="hidden" value="enviar" onclick = "location='/vistas/usuario.php'"/>
+                <div class="row mb-3">
+                    
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Actualizar Usuario</button>
+                        <input type="hidden" name="m" value="editarUsuario">
+                    </div>
                 </div>
             </form>
         </div>

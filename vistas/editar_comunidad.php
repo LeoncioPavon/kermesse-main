@@ -311,41 +311,65 @@ if(isset($_POST['m'])){
         </ol>
       </nav>
     </div><!-- End Page Title -->
-
+    
     <section class="section">
-      <div class="row">
-        <div class="col-lg-12">
-            <form action="" method="POST">
-                <div class="row mb-3">
-                    <input type="hidden" value="<?php echo $data_comunidad->getIdComunidad(); ?>" name="id_comunidad" />
-                    <label class="col-sm-2 col-form-table">Nombre:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="nombre" value="<?php echo $data_comunidad->getNombre();?>" />
+        <!-- Formulario para editar Comunidad-->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Editar Comunidad</h5>
+    
+                <!-- Floating Labels Form -->
+                <form class="row g-3 needs-validation" novalidate method="POST">
+                    <div class="col-md-12">
+                        <input type="hidden" value="guardar" name="txtaccion" />
+                        <div class="form-floating">
+                            <input type="hidden" value="<?php echo $data_comunidad->getIdComunidad(); ?>"
+                                name="id_comunidad" />
+                            <input type="text" class="form-control" id="validationCustom01" id="floatingName" name="nombre"
+                                value="<?php echo $data_comunidad->getNombre(); ?>" required>
+                            <label for="floatingName" id="validationCustom01">Nombre</label>
+                            <div class="valid-feedback">
+    
+                            </div>
+                            <div class="invalid-feedback">
+                                Rellena este campo
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-form-table">Responsable:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="responsable" class="form-control" value="<?php echo $data_comunidad->getResponsable(); ?>" />
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="validationCustom02" id="floatingName"
+                                name="responsable" value="<?php echo $data_comunidad->getResponsable(); ?>" required>
+                            <label for="floatingName" id="validationCustom02">Responsable</label>
+                            <div class="valid-feedback">
+    
+                            </div>
+                            <div class="invalid-feedback">
+                                Rellena este campo
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-form-table">Descuento:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="desc_contribucion" class="form-control" value="<?php echo $data_comunidad->getDescContribucion(); ?>" />
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="validationCustom03" id="floatingName"
+                                name="desc_contribucion" value="<?php echo $data_comunidad->getDescContribucion(); ?>" required>
+                            <label for="floatingName" id="validationCustom03">Descuento</label>
+                            <div class="valid-feedback">
+    
+                            </div>
+                            <div class="invalid-feedback">
+                                Rellena este campo
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-outline-primary">Actualizar Comunidad</button>
+                    <div class="text-center">
+                    <button type="submit" class="btn btn-outline-primary">Editar Comunidad</button>
                     <input type="hidden" name="m" value="editarComunidad">
                     <button type="submit" href="comunidad.php" class="btn btn-outline-secondary">Cancelar</button>
                     <input type="hidden" value="enviar" onclick = "location='/vistas/comunidad.php'"/>
                 </div>
-            </form>
-        </div>
-      </div>
+                </form><!-- End floating Labels Form -->
     </section>
-
 
   </main><!-- End #main -->
 

@@ -311,34 +311,52 @@ if(isset($_POST['m'])){
         </ol>
       </nav>
     </div><!-- End Page Title -->
-
     <section class="section">
-      <div class="row">
-        <div class="col-lg-12">
-            <form action="" method="POST">
-                <div class="row mb-3">
-                    <input type="hidden" value="<?php echo $data_categoria->getIdCategoriaProducto(); ?>" name="id_categoria" />
-                    <label class="col-sm-2 col-form-table">Nombre:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="nombre" value="<?php echo $data_categoria->getNombre();?>" />
+        <!-- Formulario para editar Categoria-->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Editar Categoria</h5>
+    
+                <!-- Floating Labels Form -->
+                <form class="row g-3 needs-validation" novalidate method="POST">
+                    <div class="col-md-12">
+                        <input type="hidden" value="guardar" name="txtaccion" />
+                        <div class="form-floating">
+                            <input type="hidden" value="<?php echo $data_categoria->getIdCategoriaProducto(); ?>"
+                                name="id_categoria" />
+                            <input type="text" class="form-control" id="validationCustom01" id="floatingName" name="nombre"
+                                value="<?php echo $data_categoria->getNombre(); ?>" required>
+                            <label for="floatingName" id="validationCustom01">Nombre</label>
+                            <div class="valid-feedback">
+    
+                            </div>
+                            <div class="invalid-feedback">
+                                Rellena este campo
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-form-table">Descripcion:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="descripcion" class="form-control" value="<?php echo $data_categoria->getDescripcion();?>" />
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="validationCustom02" id="floatingName"
+                                name="descripcion" value="<?php echo $data_categoria->getDescripcion(); ?>" required>
+                            <label for="floatingName" id="validationCustom02">Descripción</label>
+                            <div class="valid-feedback">
+    
+                            </div>
+                            <div class="invalid-feedback">
+                                Rellena este campo
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-outline-primary">Actualizar Categoria</button>
+                    <div class="text-center">
+                    <button type="submit" class="btn btn-outline-primary">Editar Categoria</button>
                     <input type="hidden" name="m" value="editarCategoria">
-                    <button type="submit" href="categorias.php" class="btn btn-outline-secondary">Cancelar</button>
-                    <input type="hidden" value="enviar" onclick = "location='/vistas/categorias.php'"/>
+                    <button type="submit" href="categoria.php" class="btn btn-outline-secondary">Cancelar</button>
+                    <input type="hidden" value="enviar" onclick = "location='/vistas/categoria.php'"/>
                 </div>
-            </form>
-        </div>
-      </div>
+                </form><!-- End floating Labels Form -->
     </section>
+
 
   </main><!-- End #main -->
 

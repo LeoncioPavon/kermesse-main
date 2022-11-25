@@ -27,6 +27,10 @@ if(isset($_POST['m'])){
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -301,6 +305,26 @@ if(isset($_POST['m'])){
       </nav>
     </div><!-- End Page Title -->
 
+    <script type="text/javascript">
+        function mostrarPassword() {
+            var cambio = document.getElementById("txtPassword");
+            if (cambio.type == "password") {
+                cambio.type = "text";
+                $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+            } else {
+                cambio.type = "password";
+                $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+            }
+        }
+
+        $(document).ready(function () {
+            //CheckBox mostrar contraseña
+            $('#ShowPassword').click(function () {
+                $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+            });
+        });
+    </script>
+
     <section class="section">
         <!-- Formulario para agregar Usuario-->
         <div class="card">
@@ -364,9 +388,11 @@ if(isset($_POST['m'])){
                         </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="password" class="form-control" id="validationCustom05" id="floatingPassword" placeholder="Password"
-                                name="pwd" required>
+                            <input id="txtPassword" type="password" class="form-control" id="validationCustom05"
+                             id="floatingPassword" placeholder="Password" name="pwd" required>
                             <label for="floatingPassword" id="validationCustom05">Contraseña</label>
+                            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()">
+                            <span class="fa fa-eye-slash icon" class="input-group-text"></span> </button>
                             <div class="valid-feedback">
                         
                                 </div>

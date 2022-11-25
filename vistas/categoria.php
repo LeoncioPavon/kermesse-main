@@ -6,6 +6,14 @@ require_once '../controladores/categoriaController.php';
 $tu = new tbl_categoria_producto();
 $dtu = new dt_tbl_categoria();
 $cu = new categoriaController();
+
+
+if(isset($_GET['id_categoria']))
+{
+    $id_cat_producto = $_GET['id_categoria'];
+    $dtu->eliminarCategoria($id_cat_producto);
+}
+
 ?>
 
 <!DOCTYPE html>

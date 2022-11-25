@@ -38,6 +38,9 @@ if(isset($_POST['m'])){
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -235,13 +238,13 @@ if(isset($_POST['m'])){
             <li class="nav-item dropdown pe-3">
     
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                    <img src="assets/img/logo2.png" alt="Profile" class="rounded-circle">
+                    <span class="d-none d-md-block dropdown-toggle ps-2">System Color</span>
                 </a><!-- End Profile Iamge Icon -->
     
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6>Kevin Anderson</h6>
+                        <h6>System Color</h6>
                         <span>Web Designer</span>
                     </li>
                     <li>
@@ -249,7 +252,7 @@ if(isset($_POST['m'])){
                     </li>
     
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                        <a class="dropdown-item d-flex align-items-center" href="perfil.php">
                             <i class="bi bi-person"></i>
                             <span>My Profile</span>
                         </a>
@@ -312,52 +315,114 @@ if(isset($_POST['m'])){
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section">
-      <div class="row">
-        <div class="col-lg-12">
-            <form action="" method="POST">
-                <div class="row mb-3">
-                    <input type="hidden" value="<?php echo $data_usuario->getIdUsuario(); ?>" name="id_usuario" />
-                    <label class="col-sm-2 col-form-table">Nombre:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="nombre" value="<?php echo $data_usuario->getNombres(); ?>" />
+    <script type="text/javascript">
+        function mostrarPassword() {
+            var cambio = document.getElementById("txtPassword");
+            if (cambio.type == "password") {
+                cambio.type = "text";
+                $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+            } else {
+                cambio.type = "password";
+                $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+            }
+        }
+
+        $(document).ready(function () {
+            //CheckBox mostrar contraseña
+            $('#ShowPassword').click(function () {
+                $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+            });
+        });
+    </script>
+    
+<section class="section">
+    <!-- Formulario para editar Usuarios-->
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Editar Usuario</h5>
+
+            <!-- Floating Labels Form -->
+            <form class="row g-3 needs-validation" novalidate method="POST">
+                <div class="col-md-12">
+                    <input type="hidden" value="guardar" name="txtaccion" />
+                    <div class="form-floating">
+                        <input type="hidden" value="<?php echo $data_usuario->getIdUsuario(); ?>" name="id_usuario" />
+                        <input type="text" class="form-control" id="validationCustom01" id="floatingName" name="nombre"
+                            value="<?php echo $data_usuario->getNombres(); ?>" required>
+                        <label for="floatingName" id="validationCustom01">Nombre</label>
+                        <div class="valid-feedback">
+
+                        </div>
+                        <div class="invalid-feedback">
+                            Rellena este campo
+                        </div>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-form-table">Apellido:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="apellido" class="form-control" value="<?php echo $data_usuario->getApellidos(); ?>" />
+                <div class="col-md-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="validationCustom02" id="floatingName"
+                            name="apellido" value="<?php echo $data_usuario->getApellidos(); ?>" required>
+                        <label for="floatingName" id="validationCustom02">Apellidos</label>
+                        <div class="valid-feedback">
+
+                        </div>
+                        <div class="invalid-feedback">
+                            Rellena este campo
+                        </div>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-form-table">Email:</label>
-                    <div class="col-sm-10">
-                        <input type="email" name="email" class="form-control" value="<?php echo $data_usuario->getEmail(); ?>" />
+                <div class="col-md-12">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="validationCustom03" id="floatingName" name="email"
+                            value="<?php echo $data_usuario->getEmail(); ?>" required>
+                        <label for="floatingName" id="validationCustom03">Email</label>
+                        <div class="valid-feedback">
+
+                        </div>
+                        <div class="invalid-feedback">
+                            Rellena este campo y/o ingresa un correo electrónico válido
+                        </div>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-form-table">Usuario:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="usuario" class="form-control" value="<?php echo $data_usuario->getUsuario(); ?>" />
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="validationCustom05" id="floatingPassword"
+                            name="usuario" value="<?php echo $data_usuario->getUsuario(); ?>" required>
+                        <label for="floatingPassword" id="validationCustom05">Usuario</label>
+                        <div class="valid-feedback">
+
+                        </div>
+                        <div class="invalid-feedback">
+                            Rellena este campo
+                        </div>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-form-table">Contraseña:</label>
-                    <div class="col-sm-10">
-                        <input type="password" name="pwd" class="form-control" value="<?php echo $data_usuario->getPwd(); ?>" />
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input id="txtPassword" type="password" class="form-control" id="validationCustom05"
+                            id="floatingPassword" name="pwd" value="<?php echo $data_usuario->getPwd(); ?>" required>
+
+
+
+                        <label for="floatingPassword" id="validationCustom05">Contraseña</label>
+                        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()">
+                            <span class="fa fa-eye-slash icon" class="input-group-text"></span> </button>
+                        <div class="valid-feedback">
+
+                        </div>
+                        <div class="invalid-feedback">
+                            Rellena este campo
+                        </div>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary">Actualizar Usuario</button>
-                        <input type="hidden" name="m" value="editarUsuario">
-                    </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-outline-primary">Editar Usuario</button>
+                    <input type="hidden" name="m" value="editarUsuario">
+                    <button type="submit" href="usuario.php" class="btn btn-outline-secondary">Cancelar</button>
+                    <input type="hidden" value="enviar" onclick="location='/vistas/usuario.php'" />
                 </div>
-            </form>
-        </div>
-      </div>
-    </section>
+            </form><!-- End floating Labels Form -->
+</section>
 
   </main><!-- End #main -->
 

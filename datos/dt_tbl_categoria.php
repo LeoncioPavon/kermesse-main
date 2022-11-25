@@ -116,5 +116,22 @@ class dt_tbl_categoria extends Conexion
             die($e->getMessage());
         }
     }
+    public function eliminarCategoria($id_categoria_producto)
+    {
+        try 
+        {
+            $sql = "DELETE FROM `dbkermesse`.`tbl_categoria_producto` WHERE id_categoria_producto = ?;";
+            $query = $this->conectar()->prepare($sql);
+            
+            $query->execute(array(
+                $id_categoria_producto
+            ));
+            
+        } 
+        catch (Exception $e) 
+        {
+            die($e->getMessage());
+        }
+    }
 
 }

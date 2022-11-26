@@ -3,9 +3,10 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#">
+            <a class="nav-link collapsed" href="inicio.php">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
+            </a>
             </a>
         </li><!-- End Dashboard Nav -->
 

@@ -290,29 +290,50 @@
     </div><!-- End Page Title -->
 
     <section class="section">
-      <div class="row">
-        <div class="col-lg-6">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Example Card</h5>
-              <p>This is an examle page with no contrnt. You can use it as a starter for your custom pages.</p>
+        <div class="row">
+            <div class="col-lg-6">
+                <!-- Card with an image on left -->
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="assets/img/mision.png" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Misión</h5>
+                                <p class="card-text">La misión de este Portal Académico es proporcionar información
+                                    valiosa sobre los diferentes lenguajes de programación
+                                    en una cultura segura y profesional. Nuestro objetivo es ser los mejores para el
+                                    mundo y brindar a futuras generaciones nuestros cursos.
+                                    Lograremos este objetivo con la dedicación que le ponemos a lo que hacemos día a
+                                    día y siempre del lado de los usuarios.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End Card with an image on left -->
             </div>
-          </div>
-
         </div>
-
-        <div class="col-lg-6">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Example Card</h5>
-              <p>This is an examle page with no contrnt. You can use it as a starter for your custom pages.</p>
+        <div class="row">
+            <div class="col-lg-6">
+                <!-- Card with an image on left -->
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="assets/img/vision.png" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Visión</h5>
+                                <p class="card-text">La perspectiva de Portal Académico es que prosperaremos en los años
+                                    futuros
+                                    a través de mejoras operativas continuas, una dedicación incesante al
+                                    soporte del mismo y un respeto máximo entre los miembros del equipo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End Card with an image on left -->
             </div>
-          </div>
-
         </div>
-      </div>
     </section>
 
   </main><!-- End #main -->

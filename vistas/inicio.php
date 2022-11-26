@@ -1,17 +1,3 @@
-<?php
-
-require_once '../entidades/tbl_parroquia.php';
-require_once '../datos/dt_tbl_parroquia.php';
-require_once '../controladores/parroquiaController.php';
-if (isset($_POST['m'])) {
-    $metodo = $_POST['m'];
-    if (method_exists("parroquiaController", $metodo)) {
-        parroquiaController::{$metodo}();
-    }
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -238,7 +224,7 @@ if (isset($_POST['m'])) {
                     </li>
     
                     <li>
-                        <a class="dropdown-item d-flex align-items-center"  href="perfil.php">
+                        <a class="dropdown-item d-flex align-items-center" href="perfil.php">
                             <i class="bi bi-person"></i>
                             <span>My Profile</span>
                         </a>
@@ -253,7 +239,6 @@ if (isset($_POST['m'])) {
                             <span>Account Settings</span>
                         </a>
                     </li>
-    
                 </ul><!-- End Profile Dropdown Items -->
             </li><!-- End Profile Nav -->
     
@@ -267,118 +252,69 @@ if (isset($_POST['m'])) {
   include("shared/navbar.php");
   ?>
   <!-- End Sidebar-->
-
+    
   <main id="main" class="main">
 
-    <div class="pagetitle">
-      <h1>Agregar Parroquia</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Agregar Parroquia</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-    <section class="section">
-        <!-- Formulario para agregar Parroquia-->
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Agregar datos de la Parroquia</h5>
-    
-                <!-- Floating Labels Form -->
-                <form class="row g-3 needs-validation" novalidate method="POST">
-                    <div class="col-md-12">
-                        <input type="hidden" value="guardar" name="txtaccion" />
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="validationCustom01" id="floatingName"
-                                placeholder="Your Name" name="nombre" required>
-                            <label for="floatingName" id="validationCustom01">Nombre</label>
-                            <div class="valid-feedback">
-    
-                            </div>
-                            <div class="invalid-feedback">
-                                Rellena este campo
-                            </div>
+<div class="pagetitle">
+  <h1>Proyecto Kermesse By System Color</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item">Pages</li>
+      <li class="breadcrumb-item active">Blank</li>
+    </ol>
+  </nav>
+</div><!-- End Page Title -->
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- Card with an image on left -->
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="assets/img/mision.png" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Misión</h5>
+                            <p class="card-text">La misión de este Portal Académico es proporcionar información
+                                valiosa sobre los diferentes lenguajes de programación
+                                en una cultura segura y profesional. Nuestro objetivo es ser los mejores para el
+                                mundo y brindar a futuras generaciones nuestros cursos.
+                                Lograremos este objetivo con la dedicación que le ponemos a lo que hacemos día a
+                                día y siempre del lado de los usuarios.</p>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="validationCustom02" id="floatingName"
-                                placeholder="Your Name" name="direccion" required>
-                            <label for="floatingName" id="validationCustom02">Direccion</label>
-                            <div class="valid-feedback">
-    
-                            </div>
-                            <div class="invalid-feedback">
-                                Rellena este campo
-                            </div>
+                </div>
+            </div><!-- End Card with an image on left -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- Card with an image on left -->
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="assets/img/vision.png" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Visión</h5>
+                            <p class="card-text">La perspectiva de Portal Académico es que prosperaremos en los años
+                                futuros
+                                a través de mejoras operativas continuas, una dedicación incesante al
+                                soporte del mismo y un respeto máximo entre los miembros del equipo.</p>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="validationCustom03" id="floatingName"
-                                placeholder="Your Name" name="telefono" required>
-                            <label for="floatingName" id="validationCustom03">Teléfono</label>
-                            <div class="valid-feedback">
-    
-                            </div>
-                            <div class="invalid-feedback">
-                                Rellena este campo y/o ingresa un correo electrónico válido
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="validationCustom05" id="floatingPassword"
-                                placeholder="Password" name="parroco" required>
-                            <label for="floatingPassword" id="validationCustom05">Parroco</label>
-                            <div class="valid-feedback">
-    
-                            </div>
-                            <div class="invalid-feedback">
-                                Rellena este campo
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="validationCustom5" id="floatingName"
-                                placeholder="Your URL" name="sitio_web" required>
-                            <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
-                            <label for="floatingName" id="validationCustom5">Sitio Web de la Parroquia</label>
-                            <div class="valid-feedback">
-    
-                            </div>
-                            <div class="invalid-feedback">
-                                Rellena este campo
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating">
-                            <div class="col-sm-10">
-                                <input id="validationCustom6" class="form-control" type="file" name="file" required/>
-                                
-                                <span class="input-group-text" id="basic-addon3">Logo de La Parroquia</span>
-                                <div class="valid-feedback">
-    
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingresa tu logo
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-outline-primary">Agregar Parroquia</button>
-                        <input type="hidden" name="m" value="guardarParroquia">
-                        <button type="button" class="btn btn-outline-secondary">Cancelar</button>
-                    </div>
-                </form><!-- End floating Labels Form -->
-    </section>
-    
-    </main><!-- End #main -->
+                </div>
+            </div><!-- End Card with an image on left -->
+        </div>
+    </div>
+</section>
+
+</main><!-- End #main -->
+
 
   <!-- ======= Footer ======= -->
   <?php

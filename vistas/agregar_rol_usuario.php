@@ -291,12 +291,12 @@ if(isset($_POST['m'])){
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Agregar Rol a Usuario</h1>
+      <h1>Asignar Rol a Usuario</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item">Seguridad</li>
-          <li class="breadcrumb-item active">Agregar Rol a Usuario</li>
+          <li class="breadcrumb-item active">Asignar Rol a Usuario</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -312,9 +312,9 @@ if(isset($_POST['m'])){
               
                 <form action="" method="post">
                     <div class="row mb-3 mt-3">
-                        <input type="hidden" name="id_usuario" value="<?php echo $data_usuario->getIdUsuario(); ?>">
-                        <label class="col-sm-2">Seleccionar Rol:</label>
-                        <select class="col-sm-10" name="id_rol" id="">
+                        <input type="hidden" name="id_usuario" value="<?php echo $data_usuario->getIdUsuario(); ?>" required>
+                        <label class="col-sm-2">Seleccionar Rol:</label required>
+                        <select class="col-sm-10" name="id_rol" id="" required>
                             <option value="0">SELECCIONE</option>
                             <?php
                                 foreach ($lista_rol as $rol):
@@ -324,11 +324,10 @@ if(isset($_POST['m'])){
                     
                         </select>
                     </div>
-                        <div class="col-sm-10 mb-4">
-                            <button type="submit" id="rol" class="btn btn-primary">Asignar rol</button>
-                            <input type="hidden" name="m" value="asignarUsuarioRol">
-                        </div>
-                    
+                    <div class="col-sm-10 mb-4">
+                        <button type="submit" class="btn btn-outline-primary">Asignar Rol</button>
+                        <input type="hidden" name="m" value="asignarUsuarioRol">
+                    </div>
                 </form>
               
               <table class="table usuariosTable">

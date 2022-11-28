@@ -52,49 +52,46 @@ class dt_tbl_categoria extends Conexion
 
     public function guardarCategoria(tbl_categoria_producto $tu)
     {
-        try 
-        {
-            
+        try {
+
             $sql = "INSERT INTO tbl_categoria_producto (nombre, descripcion, estado) VALUES 
                     (?,?,1)";
-            $query = $this->conectar()->prepare($sql)->execute(array(
-                $tu->getNombre(), 
-                $tu->getDescripcion(), 
-            ));
+            $query = $this->conectar()->prepare($sql)->execute(
+                array(
+                    $tu->getNombre(),
+                    $tu->getDescripcion(),
+                )
+            );
 
             var_dump($query);
-            
-        } 
-        catch (Exception $e) 
-        {
+
+        } catch (Exception $e) {
             die($e->getMessage());
         }
-        
+
     }
 
     public function editarCategoria(tbl_categoria_producto $tu)
     {
-        try 
-        {
+        try {
             $sql = "UPDATE tbl_categoria_producto SET nombre = ?, descripcion = ?, estado = 2 where id_categoria_producto = ?";
             $query = $this->conectar()->prepare($sql);
-            $query->execute(array(
-                $tu->getNombre(),
-                $tu->getDescripcion(),
-                $tu->getIdCategoriaProducto()
-            ));
-        } 
-        catch (Exception $e) 
-        {
+            $query->execute(
+                array(
+                    $tu->getNombre(),
+                    $tu->getDescripcion(),
+                    $tu->getIdCategoriaProducto()
+                )
+            );
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }
 
     public function mostrarCategoria($id_categoria_producto)
     {
-        try 
-        {
-            $sql = "SELECT * FROM tbl_categoria_producto where estado<>3 and id_categoria_producto = ?;"; 
+        try {
+            $sql = "SELECT * FROM tbl_categoria_producto where estado<>3 and id_categoria_producto = ?;";
             //$result = array(); 
             $stm = $this->conectar()->prepare($sql);
             $stm->execute(array($id_categoria_producto));
@@ -110,26 +107,23 @@ class dt_tbl_categoria extends Conexion
 
             //$result[] = $tu;   
             return $tu;
-        } 
-        catch (Exception $e) 
-        {
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }
     public function eliminarCategoria($id_categoria_producto)
     {
-        try 
-        {
+        try {
             $sql = "DELETE FROM `dbkermesse`.`tbl_categoria_producto` WHERE id_categoria_producto = ?;";
             $query = $this->conectar()->prepare($sql);
-            
-            $query->execute(array(
-                $id_categoria_producto
-            ));
-            
-        } 
-        catch (Exception $e) 
-        {
+
+            $query->execute(
+                array(
+                    $id_categoria_producto
+                )
+            );
+
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }

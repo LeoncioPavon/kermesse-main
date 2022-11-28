@@ -19,8 +19,7 @@ class Conexion
 
     public function conectar()
     {
-        try
-        {
+        try {
             $con = "mysql:host={$this->host}; dbname={$this->db}; charset={$this->charset}";
 
             $options = [
@@ -30,8 +29,7 @@ class Conexion
 
             $pdo = new PDO($con, $this->user, $this->password, $options);
             return $pdo;
-        } catch (PDOException $e) 
-        {
+        } catch (PDOException $e) {
             throw $e;
         }
     }

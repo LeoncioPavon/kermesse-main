@@ -34,4 +34,53 @@ class productoController{
         }
         
     }
+
+    public function editarProducto()
+    {
+        try 
+        {
+            $id_producto = $_REQUEST['id_producto'];
+            $id_comunidad = $_REQUEST['id_comunidad'];
+            $id_cat_producto = $_REQUEST['id_cat_producto'];
+            $nombre = $_REQUEST['nombre'];
+            $descripcion = $_REQUEST['descripcion'];
+            $cantidad = $_REQUEST['cantidad'];
+            $preciov_sugerido = $_REQUEST['preciov_sugerido'];
+                        
+            $tu = new tbl_productos();
+            $dtu = new dt_tbl_productos();
+
+            $tu->setIdProducto($id_producto);
+            $tu->setNombres($nombre);
+            $tu->setDescripcion($descripcion);
+            $tu->setCantidad($cantidad);
+            $tu->setPreciovSugerido($preciov_sugerido);
+            
+            $dtu->editarProducto($tu);
+            
+            
+            header("Location: parroquia.php");
+        } 
+        catch (Exception $e) 
+        {
+            die($e->getMessage());
+        }
+    }
+    public static function eliminarProducto()
+    {
+     try 
+     {
+         $id = $_REQUEST['id_producto'];
+         
+         $dtu = new dt_tbl_productos();
+ 
+         $dtu->editarProducto($id);
+ 
+         header("Location: producto.php");
+     } 
+     catch (Exception $e) 
+     {
+         die($e->getMessage());
+     }
+    } 
 }

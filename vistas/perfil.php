@@ -14,7 +14,9 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -247,11 +249,11 @@
 
   </header><!-- End Header -->
 
-<!-- ======= Sidebar ======= -->
-<?php
-  include("shared/navbar.php");
-  ?>
-<!-- End Sidebar-->
+  <!-- ======= Sidebar ======= -->
+  <?php
+include("shared/navbar.php");
+?>
+  <!-- End Sidebar-->
 
   <main id="main" class="main">
 
@@ -295,7 +297,8 @@
               <ul class="nav nav-tabs nav-tabs-bordered">
 
                 <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Visión General</button>
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Visión
+                    General</button>
                 </li>
 
                 <li class="nav-item">
@@ -307,7 +310,8 @@
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Cambiar Contraseña</button>
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Cambiar
+                    Contraseña</button>
                 </li>
 
               </ul>
@@ -365,8 +369,10 @@
                       <div class="col-md-8 col-lg-9">
                         <img src="assets/img/logo2.png" alt="Profile">
                         <div class="pt-2">
-                          <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                          <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                          <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i
+                              class="bi bi-upload"></i></a>
+                          <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i
+                              class="bi bi-trash"></i></a>
                         </div>
                       </div>
                     </div>
@@ -381,14 +387,16 @@
                     <div class="row mb-3">
                       <label for="about" class="col-md-4 col-lg-3 col-form-label">Sobre Nosotros</label>
                       <div class="col-md-8 col-lg-9">
-                        <textarea name="about" class="form-control" id="about" style="height: 100px">Somos System Color</textarea>
+                        <textarea name="about" class="form-control" id="about"
+                          style="height: 100px">Somos System Color</textarea>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="company" class="col-md-4 col-lg-3 col-form-label">Compañia</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="company" type="text" class="form-control" id="company" value="System Color Company">
+                        <input name="company" type="text" class="form-control" id="company"
+                          value="System Color Company">
                       </div>
                     </div>
 
@@ -430,28 +438,32 @@
                     <div class="row mb-3">
                       <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Perfil de Twiter</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="twitter" type="text" class="form-control" id="Twitter" value="twitter.com/systemcolor/">
+                        <input name="twitter" type="text" class="form-control" id="Twitter"
+                          value="twitter.com/systemcolor/">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Perfil de Facebook</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="facebook" type="text" class="form-control" id="Facebook" value="facebook.com/systemcolor/">
+                        <input name="facebook" type="text" class="form-control" id="Facebook"
+                          value="facebook.com/systemcolor/">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Perfil de Instagram</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="instagram" type="text" class="form-control" id="Instagram" value="instagram.com/systemcolor/">
+                        <input name="instagram" type="text" class="form-control" id="Instagram"
+                          value="instagram.com/systemcolor/">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Perfil de Linkedin</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="linkedin" type="text" class="form-control" id="Linkedin" value="linkedin.com/systemcolor/">
+                        <input name="linkedin" type="text" class="form-control" id="Linkedin"
+                          value="linkedin.com/systemcolor/">
                       </div>
                     </div>
 
@@ -468,7 +480,8 @@
                   <form>
 
                     <div class="row mb-3">
-                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Notificaciones de Correo Electrónico</label>
+                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Notificaciones de Correo
+                        Electrónico</label>
                       <div class="col-md-8 col-lg-9">
                         <div class="form-check">
                           <input class="form-check-input" type="checkbox" id="changesMade" checked>
@@ -523,7 +536,8 @@
                     </div>
 
                     <div class="row mb-3">
-                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Confirme la Nueva Contraseña</label>
+                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Confirme la Nueva
+                        Contraseña</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="renewpassword" type="password" class="form-control" id="">
                       </div>
@@ -549,11 +563,12 @@
 
   <!-- ======= Footer ======= -->
   <?php
-    include("shared/footer.php");
+  include("shared/footer.php");
   ?>
   <!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>

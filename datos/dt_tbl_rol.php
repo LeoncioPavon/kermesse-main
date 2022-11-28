@@ -2,18 +2,17 @@
 
 require_once("conexion.php");
 require_once("../entidades/tbl_rol.php");
-class dt_tbl_rol extends Conexion{
+class dt_tbl_rol extends Conexion
+{
     public function listarRol()
     {
-        try 
-        {
-            $sql = "SELECT * FROM tbl_rol where estado<>3;"; 
-            $result = array(); 
+        try {
+            $sql = "SELECT * FROM tbl_rol where estado<>3;";
+            $result = array();
             $stm = $this->conectar()->prepare($sql);
             $stm->execute();
 
-            foreach($stm->fetchAll(PDO::FETCH_OBJ) as $r)
-            {
+            foreach ($stm->fetchAll(PDO::FETCH_OBJ) as $r) {
                 $rol = new tbl_rol();
 
                 $rol->setIdRol($r->id_rol);
@@ -22,43 +21,40 @@ class dt_tbl_rol extends Conexion{
 
                 $result[] = $rol;
             }
-            
+
             return $result;
-        } 
-        catch (Exception $e) 
-        {
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }
     public function guardarUsuario(tbl_usuario $tu)
     {
-        try 
-        {
-            
+        try {
+
             $sql = "INSERT INTO tbl_usuario (nombres, apellidos, email, usuario, pwd, estado) VALUES 
                     (?,?,?,?,?,1)";
-            $query = $this->conectar()->prepare($sql)->execute(array(
-                $tu->getNombres(), 
-                $tu->getApellidos(), 
-                $tu->getEmail(), 
-                $tu->getUsuario(), 
-                $tu->getPwd()));
+            $query = $this->conectar()->prepare($sql)->execute(
+                array(
+                    $tu->getNombres(),
+                    $tu->getApellidos(),
+                    $tu->getEmail(),
+                    $tu->getUsuario(),
+                    $tu->getPwd()
+                )
+            );
 
             var_dump($query);
-            
-        } 
-        catch (Exception $e) 
-        {
+
+        } catch (Exception $e) {
             die($e->getMessage());
         }
-        
+
     }
-    
+
     public function mostrarUsuario($id_usuario)
     {
-        try 
-        {
-            $sql = "SELECT * FROM tbl_usuario where estado<>3 and id_usuario=?;"; 
+        try {
+            $sql = "SELECT * FROM tbl_usuario where estado<>3 and id_usuario=?;";
             $stm = $this->conectar()->prepare($sql);
             $stm->execute(array($id_usuario));
 
@@ -74,9 +70,7 @@ class dt_tbl_rol extends Conexion{
             $tu->setEstado($r->estado);
 
             return $tu;
-        } 
-        catch (Exception $e) 
-        {
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }

@@ -2,6 +2,10 @@
 
 class tbl_productos{
     private $id_producto;
+
+    private $id_comunidad;
+
+    private $id_cat_producto;
     private $nombre;
     private $descripcion;
     private $cantidad;
@@ -14,6 +18,22 @@ class tbl_productos{
 
     public function setIdProducto($id_producto){
         $this->id_producto = $id_producto;
+    } 
+
+    public function getIdComunidad(){
+        return $this->id_comunidad;
+    } 
+
+    public function setIdComunidad($id_comunidad){
+        $this->id_comunidad = $id_comunidad;
+    } 
+
+    public function getIdCatProducto(){
+        return $this->id_cat_producto;
+    } 
+
+    public function setIdCatProducto($id_cat_producto){
+        $this->id_cat_producto = $id_cat_producto;
     } 
 
     public function getNombre(){

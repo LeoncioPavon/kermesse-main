@@ -308,8 +308,8 @@ if(isset($_POST['m'])){
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Lista de Roles</h5>
-              <h4 class="card-title"><?php echo $data_usuario->getNombres() . " ". $data_usuario->getApellidos(); ?></h4>
-              
+
+              <h4 class="card-title">Usuario Seleccionado:&nbsp;&nbsp;<?php echo $data_usuario->getNombres() . " ". $data_usuario->getApellidos(); ?></h4>
                 <form action="" method="post">
                     <div class="row mb-3 mt-3">
                         <input type="hidden" name="id_usuario" value="<?php echo $data_usuario->getIdUsuario(); ?>" required>

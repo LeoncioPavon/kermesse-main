@@ -105,7 +105,7 @@ class dt_tbl_productos extends Conexion
     public function eliminarProducto($id_producto)
     {
         try {
-            $sql = "DELETE FROM `dbkermesse`.`tbl_producto` WHERE id_producto = ?;";
+            $sql = "DELETE FROM tbl_productos WHERE id_producto = ?;";
             $query = $this->conectar()->prepare($sql);
 
             $query->execute(

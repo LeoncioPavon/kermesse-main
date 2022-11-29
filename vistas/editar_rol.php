@@ -1,14 +1,25 @@
 <?php
-require_once '../entidades/tbl_productos.php';
-require_once '../datos/dt_tbl_productos.php';
-require_once '../controladores/productoController.php';
+
+require_once '../entidades/tbl_rol.php';
+require_once '../datos/dt_tbl_rol.php';
+require_once '../controladores/rolController.php';
+
+$dtu = new dt_tbl_rol();
+$varId_rol = 0;
+if(isset($varId_rol))
+{
+    $varId_rol = $_GET['id_rol'];
+}
+
+$data_rol = $dtu->mostrarRol($varId_rol);
 
 if(isset($_POST['m'])){
     $metodo = $_POST['m'];
-    if(method_exists("productoController",$metodo))
+    if(method_exists("rolController",$metodo))
     {
-        productoController::{$metodo}();
+        rolController::{$metodo}();
     }
+   
 }
 ?>
 
@@ -27,6 +38,9 @@ if(isset($_POST['m'])){
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -238,7 +252,7 @@ if(isset($_POST['m'])){
                     </li>
     
                     <li>
-                        <a class="dropdown-item d-flex align-items-center"  href="perfil.php">
+                        <a class="dropdown-item d-flex align-items-center" href="perfil.php">
                             <i class="bi bi-person"></i>
                             <span>My Profile</span>
                         </a>
@@ -248,7 +262,7 @@ if(isset($_POST['m'])){
                     </li>
     
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="perfil.php">
+                        <a class="dropdown-item d-flex align-items-center" href="Perfil.php">
                             <i class="bi bi-gear"></i>
                             <span>Account Settings</span>
                         </a>
@@ -271,84 +285,69 @@ if(isset($_POST['m'])){
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Agregar Producto</h1>
+      <h1>Editar Rol</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Productos</li>
+          <li class="breadcrumb-item">Seguridad</li>
+          <li class="breadcrumb-item active">Editar Rol</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section">
-        <!-- Formulario para agregar Usuario-->
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Agregar Datos del Producto</h5>
+    <script type="text/javascript">
+        function mostrarPassword() {
+            var cambio = document.getElementById("txtPassword");
+            if (cambio.type == "password") {
+                cambio.type = "text";
+                $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+            } else {
+                cambio.type = "password";
+                $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+            }
+        }
+
+        $(document).ready(function () {
+            //CheckBox mostrar contraseña
+            $('#ShowPassword').click(function () {
+                $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+            });
+        });
+    </script>
     
-                <!-- Floating Labels Form -->
-                <form class="row g-3" method="POST">
-                    <div class="col-md-12">
-                        <input type="hidden" value="guardar" name="txtaccion" />
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingName" placeholder="Your Name"
-                                name="nombre">
-                            <label for="floatingName">Nombre</label>
+<section class="section">
+    <!-- Formulario para editar Usuarios-->
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Editar Rol</h5>
+
+            <!-- Floating Labels Form -->
+            <form class="row g-3 needs-validation" novalidate method="POST">
+                <div class="col-md-12">
+                    <input type="hidden" value="guardar" name="txtaccion" />
+                    <div class="form-floating">
+                        <input type="hidden" value="<?php echo $data_rol->getIdRol(); ?>" name="id_rol" />
+                        <input type="text" class="form-control" id="validationCustom01" id="floatingName" name="rol_descripcion"
+                            value="<?php echo $data_rol->getRolDescripcion(); ?>" required>
+                        <label for="floatingName" id="validationCustom01">Rol</label>
+                        <div class="valid-feedback">
+
+                        </div>
+                        <div class="invalid-feedback">
+                            Rellena este campo
                         </div>
                     </div>
-                    <div class="col-12">
-                        <div class="form-floating">
-                            <textarea class="form-control" placeholder="Address" id="floatingTextarea"
-                                style="height: 100px;" name="descripcion"></textarea>
-                            <label for="floatingTextarea" >Descripción</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-12">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingCity" placeholder="City"
-                                    name="precio">
-                                <label for="floatingCity">Precio</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-12">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingZip" placeholder="Zip" name="cantidad">
-                                <label for="floatingZip">Cantidad</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-12">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingCity" placeholder="City"
-                                    name="id_comunidad">
-                                <label for="floatingCity">Comunidad</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-12">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingZip" placeholder="Zip" name="id_cat_producto">
-                                <label for="floatingZip">Categoria</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-outline-primary">Agregar Producto</button>
-                        <input type="hidden" name="m" value="guardarProducto">
-                        <button type="button" class="btn btn-outline-secondary">Cancelar</button>
-                    </div>
-                </form>
-                <!-- End floating Labels Form -->
-    
-    </section>
-  </main>
-  <!-- End #main -->
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-outline-primary">Editar Rol</button>
+                    <input type="hidden" name="m" value="editarRol">
+                    <button type="submit" href="roles.php" class="btn btn-outline-secondary">Cancelar</button>
+                    <input type="hidden" value="enviar" onclick="location='/vistas/roles.php'" />
+                </div>
+            </form><!-- End floating Labels Form -->
+</section>
+
+  </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <?php

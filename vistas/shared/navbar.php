@@ -39,6 +39,11 @@
                     <a href="categoria.php">
                         <i class="bi bi-circle"></i><span>Categorias</span>
                     </a>
+                </li>   
+                <li>
+                    <a href="roles.php">
+                        <i class="bi bi-circle"></i><span>Roles</span>
+                    </a>
                 </li>
                 <li>
                     <a href="agregar_usuario.php">
@@ -63,6 +68,11 @@
                 <li>
                     <a href="agregar_categoriaProd.php">
                         <i class="bi bi-circle"></i><span>Agregar Categoria</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="agregar_rol.php">
+                        <i class="bi bi-circle"></i><span>Agregar Rol</span>
                     </a>
                 </li>
             </ul>

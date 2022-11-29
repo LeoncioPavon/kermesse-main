@@ -27,19 +27,15 @@ class dt_tbl_rol extends Conexion
             die($e->getMessage());
         }
     }
-    public function guardarUsuario(tbl_usuario $tu)
+    public function guardarRol(tbl_rol $tu)
     {
         try {
 
-            $sql = "INSERT INTO tbl_usuario (nombres, apellidos, email, usuario, pwd, estado) VALUES 
-                    (?,?,?,?,?,1)";
+            $sql = "INSERT INTO tbl_rol (rol_descripcion, estado) VALUES 
+                    (?,1)";
             $query = $this->conectar()->prepare($sql)->execute(
                 array(
-                    $tu->getNombres(),
-                    $tu->getApellidos(),
-                    $tu->getEmail(),
-                    $tu->getUsuario(),
-                    $tu->getPwd()
+                    $tu->getRolDescripcion()
                 )
             );
 
@@ -51,25 +47,53 @@ class dt_tbl_rol extends Conexion
 
     }
 
-    public function mostrarUsuario($id_usuario)
+    public function editarRol(tbl_rol $tu)
     {
         try {
-            $sql = "SELECT * FROM tbl_usuario where estado<>3 and id_usuario=?;";
+            $sql = 'UPDATE tbl_rol SET rol_descripcion = ?, estado = 2 where id_rol = ?';
+            $query = $this->conectar()->prepare($sql);
+            $query->execute(
+                array(
+                    $tu->getRolDescripcion(),
+                )
+            );
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function mostrarRol($id_rol)
+    {
+        try {
+            $sql = "SELECT * FROM tbl_rol where estado<>3 and id_rol=?;";
             $stm = $this->conectar()->prepare($sql);
-            $stm->execute(array($id_usuario));
+            $stm->execute(array($id_rol));
 
             $r = $stm->fetch(PDO::FETCH_OBJ);
-            $tu = new tbl_usuario();
+            $tu = new tbl_rol();
 
-            $tu->setIdUsuario($r->id_usuario);
-            $tu->setNombres($r->nombres);
-            $tu->setApellidos($r->apellidos);
-            $tu->setEmail($r->email);
-            $tu->setUsuario($r->usuario);
-            $tu->setPwd($r->pwd);
+            $tu->setIdRol($r->id_rol);
+            $tu->setRolDescripcion($r->rol_descripcion);
             $tu->setEstado($r->estado);
 
             return $tu;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function eliminarRol($id_rol)
+    {
+        try {
+            $sql = "DELETE FROM `dbkermesse`.`tbl_rol` WHERE id_rol = ?;";
+            $query = $this->conectar()->prepare($sql);
+
+            $query->execute(
+                array(
+                    $id_rol
+                )
+            );
+
         } catch (Exception $e) {
             die($e->getMessage());
         }

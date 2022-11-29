@@ -36,12 +36,10 @@ class dt_tbl_productos extends Conexion
     {
         try {
 
-            $sql = "INSERT INTO `dbkermesse`.`tbl_productos` (`id_comunidad`, `id_cat_producto`, `nombre`, `descripcion`, `cantidad`, `preciov_sugerido`, `estado`) 
-            VALUES (?, ?, ?, ?, ?, ?, 1);";
+            $sql = "INSERT INTO `dbkermesse`.`tbl_productos` (`nombre`, `descripcion`, `cantidad`, `preciov_sugerido`, `estado`) 
+            VALUES (?, ?, ?, ?, 1);";
             $query = $this->conectar()->prepare($sql)->execute(
                 array(
-                    $tp->getIdComunidad(),
-                    $tp->getIdCatProducto(),
                     $tp->getNombre(),
                     $tp->getDescripcion(),
                     $tp->getCantidad(),

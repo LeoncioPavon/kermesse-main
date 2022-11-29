@@ -18,7 +18,7 @@ class productoController
             $nombre = $_REQUEST['nombre'];
             $descripcion = $_REQUEST['descripcion'];
             $cantidad = $_REQUEST['cantidad'];
-            $preciov_sugerido = $_REQUEST['precio'];
+            $preciov_sugerido = $_REQUEST['preciov_sugerido'];
 
             $tp = new tbl_productos();
             $dtu = new dt_tbl_productos();

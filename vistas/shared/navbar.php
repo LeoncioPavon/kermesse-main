@@ -21,10 +21,27 @@
                     </a>
                 </li>
                 <li>
-                    <a href="producto.php">
-                        <i class="bi bi-circle"></i><span>Productos</span>
+                    <a href="roles.php">
+                        <i class="bi bi-circle"></i><span>Roles</span>
                     </a>
                 </li>
+                <li>
+                    <a href="agregar_usuario.php">
+                        <i class="bi bi-circle"></i><span>Agregar Usuarios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="agregar_rol.php">
+                        <i class="bi bi-circle"></i><span>Agregar Rol</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Kermesse</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="parroquia.php">
                         <i class="bi bi-circle"></i><span>Parroquias</span>
@@ -36,28 +53,18 @@
                     </a>
                 </li>
                 <li>
+                    <a href="producto.php">
+                        <i class="bi bi-circle"></i><span>Productos</span>
+                    </a>
+                </li>
+                <li>
                     <a href="categoria.php">
                         <i class="bi bi-circle"></i><span>Categoria Productos</span>
-                    </a>
-                </li>   
-                <li>
-                    <a href="roles.php">
-                        <i class="bi bi-circle"></i><span>Roles</span>
                     </a>
                 </li>
                 <li>
                     <a href="gastos.php">
                         <i class="bi bi-circle"></i><span>Categoria Gastos</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="agregar_usuario.php">
-                        <i class="bi bi-circle"></i><span>Agregar Usuarios</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="agregar_productos.php">
-                        <i class="bi bi-circle"></i><span>Agregar Productos</span>
                     </a>
                 </li>
                 <li>
@@ -71,6 +78,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="agregar_productos.php">
+                        <i class="bi bi-circle"></i><span>Agregar Productos</span>
+                    </a>
+                </li>
+                <li>
                     <a href="agregar_categoriaProd.php">
                         <i class="bi bi-circle"></i><span>Agregar Categoria Productos</span>
                     </a>
@@ -78,11 +90,6 @@
                 <li>
                     <a href="agregar_gastos.php">
                         <i class="bi bi-circle"></i><span>Agregar Categoria Gastos</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="agregar_rol.php">
-                        <i class="bi bi-circle"></i><span>Agregar Rol</span>
                     </a>
                 </li>
             </ul>

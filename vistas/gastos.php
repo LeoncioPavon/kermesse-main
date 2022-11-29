@@ -1,17 +1,17 @@
 <?php
-require_once '../entidades/tbl_categoria_producto.php';
-require_once '../datos/dt_tbl_categoria.php';
-require_once '../controladores/categoriaController.php';
+require_once '../entidades/tbl_categoria_gastos.php';
+require_once '../datos/dt_tbl_categoria_gastos.php';
+require_once '../controladores/categoriagastosController.php';
 
-$tu = new tbl_categoria_producto();
-$dtu = new dt_tbl_categoria();
-$cu = new categoriaController();
+$tu = new tbl_categoria_gastos();
+$dtu = new dt_tbl_categoria_gastos();
+$cu = new categoriagastosController();
 
 
-if(isset($_GET['id_categoria']))
+if(isset($_GET['id_categoria_gastos']))
 {
-    $id_cat_producto = $_GET['id_categoria'];
-    $dtu->eliminarCategoria($id_cat_producto);
+    $id_categoria_gastos = $_GET['id_categoria_gastos'];
+    $dtu->eliminarCategoriaGastos($id_categoria_gastos);
 }
 
 ?>
@@ -275,12 +275,12 @@ if(isset($_GET['id_categoria']))
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Categorias</h1>
+      <h1>Categoria Gastos</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Categorias</li>
+          <li class="breadcrumb-item active">Categoria Gastos</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -304,18 +304,18 @@ if(isset($_GET['id_categoria']))
                 </thead>
                 <tbody>
                   <?php
-                    foreach($dtu->listarCategoria() as $r):
+                    foreach($dtu->listarCategoriaGastos() as $r):
                   ?>
                   <tr>
-                    <td><?php echo $r->getIdCategoriaProducto(); ?></td>
-                    <td><?php echo $r->getNombre(); ?></td>
+                    <td><?php echo $r->getIdCategoriaGastos(); ?></td>
+                    <td><?php echo $r->getNombreCategoria(); ?></td>
                     <td><?php echo $r->getDescripcion(); ?></td>
                     <td>
-                        <a href="editar_categoria.php?id_categoria=<?php echo $r->getIdCategoriaProducto(); ?>">
-                            <button type="button" class="btn btn-outline-success" title="Editar Categoria">Editar</button>
+                        <a href="editar_categoria_gastos.php?id_categoria_gastos=<?php echo $r->getIdCategoriaGastos(); ?>">
+                            <button type="button" class="btn btn-outline-success" title="Editar Categoria Gastos">Editar</button>
                         </a>
-                        <a href="categoria.php?id_categoria=<?php echo $r->getIdCategoriaProducto(); ?>">
-                            <button type="button" class="btn btn-outline-danger" title="Eliminar Categoria">Eliminar</button>
+                        <a href="gastos.php?id_categoria_gastos=<?php echo $r->getIdCategoriaGastos(); ?>">
+                            <button type="button" class="btn btn-outline-danger" title="Eliminar Categoria Gastos">Eliminar</button>
                         </a>
                     </td>
                   </tr>

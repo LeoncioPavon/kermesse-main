@@ -37,12 +37,17 @@
                 </li>
                 <li>
                     <a href="categoria.php">
-                        <i class="bi bi-circle"></i><span>Categorias</span>
+                        <i class="bi bi-circle"></i><span>Categoria Productos</span>
                     </a>
                 </li>   
                 <li>
                     <a href="roles.php">
                         <i class="bi bi-circle"></i><span>Roles</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="gastos.php">
+                        <i class="bi bi-circle"></i><span>Categoria Gastos</span>
                     </a>
                 </li>
                 <li>
@@ -67,7 +72,12 @@
                 </li>
                 <li>
                     <a href="agregar_categoriaProd.php">
-                        <i class="bi bi-circle"></i><span>Agregar Categoria</span>
+                        <i class="bi bi-circle"></i><span>Agregar Categoria Productos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="agregar_gastos.php">
+                        <i class="bi bi-circle"></i><span>Agregar Categoria Gastos</span>
                     </a>
                 </li>
                 <li>
